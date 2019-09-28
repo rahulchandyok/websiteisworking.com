@@ -19,6 +19,7 @@
   <meta data-n-head="true" data-hid="twitter:image" name="twitter:image" content="https://downforeveryoneorjustme.com/img/twitter-card.png">
   <link data-n-head="true" rel="canonical" href="https://downforeveryoneorjustme.com/">
   <script data-n-head="true" src="/js/bsa.min.js" defer="true"></script>
+  <script type="text/javascript" src="index.js"></script>
   <base href="/">
   <link rel="preload" href="/_nuxt/528a88330166450ea570.js" as="script">
   <link rel="preload" href="/_nuxt/2aa5e776097bdd1e50cc.js" as="script">
@@ -12310,7 +12311,21 @@
                     </div>
                     <div class="level-item has-text-centered"> down for everyone </div>
                     <div class="level-item has-text-centered">
-                      <button type="submit" class="button is-link is-medium">or just me ?</button>
+                      <button type="submit" class="button is-link is-medium" onclick="getResponse()">or just me ?</button>
+                    </div>
+                  </nav>
+                </div>
+                <div id="response">
+                  <div id="error" />
+                  <div id="success" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
