@@ -174,11 +174,12 @@ button.is-link {
     margin: 0 20px;
   }
 
-  #history {
-    margin: 20px 0;
-    width: 100%;
+  .history {
+    margin-left: 0;
+    margin-top: 30px;
     max-height: none;
-    min-height: 200px;
+    width: 100%;
+    min-height: 300px;
   }
 }
 
