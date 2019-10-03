@@ -87,7 +87,6 @@ input::placeholder {
 
 #recent {
   color: white;
-
 }
 
 .recents-icon {
@@ -99,7 +98,6 @@ input::placeholder {
 
 .res-container {
   padding: 20px 30px;
-  display: flex;
   justify-content: space-between;
   position: relative;
   min-height: 132px;
@@ -157,7 +155,6 @@ button.is-link {
 
 @media only screen and (max-width: 800px) {
   .parent-container {
-
     margin-bottom: 50px;
   }
 

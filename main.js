@@ -10,19 +10,24 @@ function getResponse(e) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.responseText);
-      console.log(response);
       document.getElementById('loader').style.display = 'none';
       document.getElementById('response').style.display = 'block';
       if (response['isDown']) {
-        document.getElementById('website-error').innerHTML =
-          response['returnedUrl'];
-        document.getElementById('success').style.display = 'none';
-        document.getElementById('error').style.display = 'block';
+        document.getElementById(
+          'response'
+        ).innerHTML = `<div class="res-container" id="error">
+<div id="website-error">${response['returnedUrl']}</div>
+<div class="white-cls">is not working!</div>
+<img class="error-icon" src="images/not_working_icon.png" />
+</div>`;
       } else {
-        document.getElementById('website-success').innerHTML =
-          response['returnedUrl'];
-        document.getElementById('success').style.display = 'block';
-        document.getElementById('error').style.display = 'none';
+        document.getElementById(
+          'response'
+        ).innerHTML = `<div class="res-container" id="success">
+        <div id="website-success">${response['returnedUrl']}</div>
+        <div class="white-cls">is working!</div>
+        <img class="working-icon" src="images/working_icon.png" />
+      </div>`;
       }
     }
   };
