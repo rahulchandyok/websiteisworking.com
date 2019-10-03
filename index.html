@@ -96,21 +96,23 @@
       display: flex;
       justify-content: space-between;
       position: relative;
-      min-height: 112px;
+      min-height: 132px;
       border-radius: 20px;
       overflow: hidden;
     }
 
-    .icon {
+    .error-icon {
       position: absolute;
-      right: -35px;
-      top: -48px;
-      height: 150px;
-
+      right: -57px;
+      top: -57px;
+      height: 170px;
     }
 
-    .error .icon {
-      right: -45px;
+    .working-icon {
+      position: absolute;
+      right: -48px;
+      top: -56px;
+      height: 183px;
     }
 
     button.is-link {
@@ -213,12 +215,12 @@
                 <div class="res-container" id="error">
                   <div id="website-error"></div>
                   <div class="white-cls">is not working!</div>
-                  <img class="icon" src="images/not_working_icon.png" />
+                  <img class="error-icon" src="images/not_working_icon.png" />
                 </div>
                 <div class="res-container" id="success">
                   <div id="website-success"></div>
                   <div class="white-cls">is working!</div>
-                  <img class="icon" src="images/working_icon.png" />
+                  <img class="working-icon" src="images/working_icon.png" />
                 </div>
               </div>
             </div>
