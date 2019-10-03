@@ -1,263 +1,150 @@
 <!doctype html>
 <html data-n-head-ssr data-n-head="">
-  <head data-n-head="">
-    <base href="" />
-    <title data-n-head="true">Website is working </title>
-    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
-    <meta data-n-head="true" charset="utf-8">
-    <meta data-n-head="true" name="viewport" content="width=device-width, initial-scale=1">
-    <link data-n-head="true" rel="canonical" href="https://websiteisworking.com/">
-    <script type="text/javascript" src="main.js"></script>
-    <base href="/" <link rel="shortcut icon" href="https://websiteisworking.com/favicon.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="https://websiteisworking.com/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="https://websiteisworking.com/favicon.ico" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="https://websiteisworking.com/favicon.ico" />
-    <meta name="msapplication-TileImage" content="https://websiteisworking.com/favicon.ico" />
 
-    <!-- Primary Meta Tags -->
-    <title>{{ title }}</title>
-    <meta name="title" content="{{ title }}" />
-    <meta name="description" content="{{ description }}" />
-    <meta name="author" content="Website is working" />
-    <meta name="copyright" content="Copyright 2019 by websiteisworking.com, Inc. All rights reserved." />
-    <meta name="robots" content="index,follow" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Website is working" />
-    <meta property="og:url" content="{{ canonical }}" />
-    <meta property="og:title" content="{{ title }}" />
-    <meta property="fb:app_id" content="" />
-    <meta property="og:description"
+<head data-n-head="">
+  <base href="" />
+  <title data-n-head="true">Website is working </title>
+  <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+  <meta data-n-head="true" charset="utf-8">
+  <meta data-n-head="true" name="viewport" content="width=device-width, initial-scale=1">
+  <link data-n-head="true" rel="canonical" href="https://websiteisworking.com/">
+  <script type="text/javascript" src="main.js"></script>
+  <!-- <base href="/" <link rel="shortcut icon" href="https://websiteisworking.com/favicon.ico"> -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" href="https://websiteisworking.com/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="https://websiteisworking.com/favicon.ico" sizes="192x192" />
+  <link rel="apple-touch-icon-precomposed" href="https://websiteisworking.com/favicon.ico" />
+  <meta name="msapplication-TileImage" content="https://websiteisworking.com/favicon.ico" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Website is working" />
+  <meta name="description" content="Website is working" />
+  <meta name="author" content="Website is working" />
+  <meta name="copyright" content="Copyright 2019 by websiteisworking.com, Inc. All rights reserved." />
+  <meta name="robots" content="index,follow" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Website is working" />
+  <meta property="og:url" content="{{ canonical }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="fb:app_id" content="" />
+  <meta property="og:description"
     content="Helps you find whether a website is down in real time or not. You can check the actual status of any website across the globe on website is working." />
-    <meta property="og:image" content="https://websiteisworking.com/favicon.ico" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="{{ canonical }}" />
-    <meta name="twitter:creator" content="@websiteisworking" />
-    <meta property="twitter:title" content="{{ title }}" />
-    <meta property="twitter:description" content="{{ description }}" />
-    <meta property="twitter:image" content="https://websiteisworking.com/favicon.ico" />
-     
-    <link rel="canonical" href="{{ canonical }}" />
-    <link rel="alternate" href="{{ url }}" hreflang="{{ hreflang }}" />
-    <meta property="og:locale" content="{{ locale }}" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148900827-1"></script>
-    <style>
-    .parent-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    }
-    .container {
-    max-width: 800px;
-    display: flex;
-    }
-    #history {
-    background: #f2b203;
-    border-radius: 20px;
-    min-width: 200px;
-    margin-left: 100px;
-    min-height: 100%;
-    overflow: auto;
-    padding: 10px;
-    }
-    .level {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: #d2eeff;
-    color: #5f413e;
-    height: auto;
-    padding: 10px 40px;
-    border-radius: 14px;
-    }
-    .level-item {
-    display: flex;
-    align-items: center;
-    }
-    .input-field {
-    height: 100px;
-    }
-    ::placeholder {
-    color: #5f413e;
-    opacity: 0.3;
-    }
-    #response {
-    margin-top: 30px;
-    display: none;
-    }
-    #loader {
-    padding-top: 30px;
-    padding-bottom: 0;
-    display: none;
-    }
-    #error {
-    background: #e2624f;
-    }
-    #success {
-    background: #36ca65;
-    }
-    #recent {
-    color: white;
-    overflow: auto;
-    max-height: 60vh;
-    word-break: break-all;
-    }
-    .res-container {
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    min-height: 132px;
-    border-radius: 20px;
-    overflow: hidden;
-    }
-    .error-icon {
-    position: absolute;
-    right: -57px;
-    top: -57px;
-    height: 170px;
-    }
-    .working-icon {
-    position: absolute;
-    right: -48px;
-    top: -56px;
-    height: 183px;
-    }
-    button.is-link {
-    background-color: #3273dc;
-    border-color: transparent;
-    color: #fff;
-    min-width: 90px;
-    border-radius: 36px;
-    padding: 8px 17px;
-    cursor: pointer;
-    }
-    .white-cls {
-    color: white;
-    }
-    .center-cls {
-    text-align: center;
-    }
-    .font20 {
-    font-size: 20px;
-    }
-    .content-info {
-    margin-top: 20px;
-    }
-    .list-item li {
-      margin-bottom: 15px;
-    }
+  <meta property="og:image" content="https://websiteisworking.com/favicon.ico" />
 
-    @media only screen and (max-width: 800px) {
-    .parent-container {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    }
-    .container {
-    flex-direction: column;
-    width: 100%;
-    margin: 0 20px;
-    }
-    #history {
-    margin: 20px 0;
-    width: 100%;
-    max-height: none;
-    min-height: 200px;
-    }
-    }
-    .copyright a {
-      color: #a29c9c;
-    }
-    </style>
-    <script>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="{{ canonical }}" />
+  <meta name="twitter:creator" content="@websiteisworking" />
+  <meta property="twitter:title" content="{{ title }}" />
+  <meta property="twitter:description" content="{{ description }}" />
+  <meta property="twitter:image" content="https://websiteisworking.com/favicon.ico" />
+
+  <link rel="canonical" href="{{ canonical }}" />
+  <link rel="alternate" href="{{ url }}" hreflang="{{ hreflang }}" />
+  <meta property="og:locale" content="{{ locale }}" />
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148900827-1"></script>
+
+  <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
-    dataLayer.push(arguments);
+      dataLayer.push(arguments);
     }
     gtag('js', new Date());
     gtag('config', 'UA-148900827-1');
-    </script>
-  </head>
-  <body onload="fetchHistory()" data-n-head="">
-    <div data-server-rendered="true" id="__nuxt">
-      <!---->
-      <div id="__layout" class="parent-container">
-        <div class="container">
-          <div class="main-content">
-            <div class="is-hidden-mobile large-pad"></div>
-            <section>
-              <div class="columns">
-                <div class="box">
-                  <nav class="level">
-                    <div> Check any website is working or not ? </div>
-                    <div class="level-item">
-                      <input id="domain" placeholder="google.com" id="first_name" type="text" class="validate">
-                      <!-- <input id="domain" type="text" placeholder="google.com" autocapitalize="off" spellcheck="false"
+  </script>
+</head>
+
+<body onload="fetchHistory()" data-n-head="">
+  <div data-server-rendered="true" id="__nuxt">
+    <!---->
+    <div id="__layout" class="parent-container">
+
+      <div class="container">
+        <div class="logo"> <img src="images/logo.png" /></div>
+        <div class="main-content">
+          <div class="is-hidden-mobile large-pad"></div>
+          <section>
+            <div class="columns">
+              <div class="box">
+                <nav class="level">
+                  <div class="label"> Check any website is working or not ? </div>
+                  <div class="level-item">
+                    <input id="domain" placeholder="google.com" id="first_name" type="text" class="validate">
+                    <!-- <input id="domain" type="text" placeholder="google.com" autocapitalize="off" spellcheck="false"
                       autocorrect="off" autocomplete="off" value="" class="input is-medium is-focused" /> -->
-                      <button type="submit" class="button is-link is-medium" onclick="getResponse()">ping
-                      </button>
-                    </div>
-                  </nav>
-                </div>
-                <div id="loader">
-                  <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-blue-only">
-                      <div class="circle-clipper left">
-                        <div class="circle"></div>
-                      </div>
-                      <div class="gap-patch">
-                        <div class="circle"></div>
-                      </div>
-                      <div class="circle-clipper right">
-                        <div class="circle"></div>
-                      </div>
-                    </div>
+                    <button type="submit" class="button is-link is-medium" onclick="getResponse()">ping
+                    </button>
                   </div>
-                </div>
-                <div id="response">
-                  <div class="res-container" id="error">
-                    <div id="website-error"></div>
-                    <div class="white-cls">is not working!</div>
-                    <img class="error-icon" src="images/not_working_icon.png" />
-                  </div>
-                  <div class="res-container" id="success">
-                    <div id="website-success"></div>
-                    <div class="white-cls">is working!</div>
-                    <img class="working-icon" src="images/working_icon.png" />
+                </nav>
+              </div>
+              <div id="loader">
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </section>
-            <div class="content-info">
-              <a href="websiteisworking.com"><strong>USEFUL TIPS</strong></a><br>
-              <ul class="list-item">
-                <li>
-                <strong>Clear your browser's cache:</strong> if your browser can not load a page, first clear the browser's cache and reload the page directly from the server (ctrl+f5).</li>
-                <li><strong>Disable security software:</strong> failed page loads can be caused by anti-virus and firewall software as well. Disable them to make sure they don't block pages.</li>
-                <li><strong>There are other browsers:</strong> try browsing with opera, firefox or chrome. You could also check the page from another computer and network.</li>
-                <li><strong>Restart computer:</strong> remember that sometimes the most obvious solution is the best solution. Simply restart your computer and see what happens.</li>
-              </ul>
-              <div class="copyright" style="text-align: center; color: #a29c9c;">
-              © 2019 <a href="websiteisworking.com">websiteisworking.com</a>
-              | Privacy Policy <p style="margin: 0">Contact: <a href="mailto:contact@websiteisworking.com">contact@websiteisworking.com</a></p></div>
+              <div id="response">
+                <div class="res-container" id="error">
+                  <div id="website-error"></div>
+                  <div class="white-cls">is not working!</div>
+                  <img class="error-icon" src="images/not_working_icon.png" />
+                </div>
+                <div class="res-container" id="success">
+                  <div id="website-success"></div>
+                  <div class="white-cls">is working!</div>
+                  <img class="working-icon" src="images/working_icon.png" />
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="content-info">
+            <a href="https://www.websiteisworking.com/"><strong>USEFUL TIPS</strong></a><br>
+            <ul class="list-item">
+              <li>
+                <strong>Clear your browser's cache:</strong> if your browser can not load a page, first clear the
+                browser's cache and reload the page directly from the server (ctrl+f5).</li>
+              <li><strong>Disable security software:</strong> failed page loads can be caused by anti-virus and firewall
+                software as well. Disable them to make sure they don't block pages.</li>
+              <li><strong>There are other browsers:</strong> try browsing with opera, firefox or chrome. You could also
+                check the page from another computer and network.</li>
+              <li><strong>Restart computer:</strong> remember that sometimes the most obvious solution is the best
+                solution. Simply restart your computer and see what happens.</li>
+            </ul>
+            <div class="copyright" style="text-align: center; color: #a29c9c;">
+              © 2019 <a href="https://www.websiteisworking.com/">websiteisworking.com</a>
+              | Privacy Policy <p style="margin: 0">Contact: <a
+                  href="mailto:contact@websiteisworking.com">contact@websiteisworking.com</a></p>
             </div>
           </div>
-          <div id="history">
+        </div>
+        <div class="history-container">
+          <div class="history">
             <div class="white-cls center-cls font20">Recents</div>
             <div id="recent"></div>
           </div>
+          <img class="recents-icon" src="images/recents_icon.png" />
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

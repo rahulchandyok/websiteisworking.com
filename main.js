@@ -32,7 +32,9 @@ function getResponse(e) {
 function fetchHistory(website) {
   let recentSearches = JSON.parse(localStorage.getItem('recentSearches'));
   if (!recentSearches) recentSearches = '';
-  if (website) recentSearches = website + '<br>' + recentSearches;
+  if (website)
+    recentSearches =
+      `<div class="recent-searches">${website}</div>` + recentSearches;
   localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
   document.getElementById('recent').innerHTML = recentSearches;
 }

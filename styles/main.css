@@ -1,0 +1,187 @@
+.parent-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+.container {
+  max-width: 1000px;
+  padding-bottom: 50px;
+  display: flex;
+}
+
+.logo {
+  height: 100px;
+  margin-right: 66px;
+  margin-top: -108px;
+}
+
+.logo img {
+  height: 100%;
+}
+
+.history-container {
+  position: relative;
+}
+
+.history {
+  max-height: 60vh;
+  background: #f2b203;
+  border-radius: 20px;
+  min-width: 200px;
+  margin-left: 100px;
+  min-height: 100%;
+  padding: 10px;
+  overflow: auto;
+  word-break: break-all;
+}
+
+.level {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #d2eeff;
+  color: #5f413e;
+  height: auto;
+  padding: 10px 40px;
+  border-radius: 14px;
+}
+
+.label {
+  line-height: 19px;
+  padding: 20px 0 30px 0;
+}
+
+.level-item {
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  height: 100px;
+}
+
+::placeholder {
+  color: #5f413e;
+  opacity: 0.3;
+}
+
+#response {
+  margin-top: 30px;
+  display: none;
+}
+
+#loader {
+  padding-top: 30px;
+  padding-bottom: 0;
+  display: none;
+}
+
+#error {
+  background: #e2624f;
+}
+
+#success {
+  background: #36ca65;
+}
+
+#recent {
+  color: white;
+
+}
+
+.recents-icon {
+  position: absolute;
+  height: 200px;
+  bottom: -10px;
+  right: -27px;
+}
+
+.res-container {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  min-height: 132px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.recent-searches {
+  margin-bottom: 10px;
+}
+
+.error-icon {
+  position: absolute;
+  right: -57px;
+  top: -57px;
+  height: 170px;
+}
+
+.working-icon {
+  position: absolute;
+  right: -48px;
+  top: -56px;
+  height: 183px;
+}
+
+button.is-link {
+  background-color: #3273dc;
+  border-color: transparent;
+  color: #fff;
+  min-width: 90px;
+  border-radius: 36px;
+  padding: 8px 17px;
+  cursor: pointer;
+}
+
+.white-cls {
+  color: white;
+}
+
+.center-cls {
+  text-align: center;
+}
+
+.font20 {
+  font-size: 20px;
+}
+
+.content-info {
+  margin-top: 20px;
+}
+
+.list-item li {
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+  .parent-container {
+
+    margin-bottom: 50px;
+  }
+
+  .logo {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+  }
+
+  #history {
+    margin: 20px 0;
+    width: 100%;
+    max-height: none;
+    min-height: 200px;
+  }
+}
+
+.copyright a {
+  color: #a29c9c;
+}
