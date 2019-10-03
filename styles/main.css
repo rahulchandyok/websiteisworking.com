@@ -61,9 +61,9 @@
   height: 100px;
 }
 
-::placeholder {
+input::placeholder {
   color: #5f413e;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 #response {
