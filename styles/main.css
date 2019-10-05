@@ -137,6 +137,7 @@ button.is-link {
 
 .white-cls {
   color: white;
+  max-width: calc(100% - 82px);
 }
 
 .center-cls {
