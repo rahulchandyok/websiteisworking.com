@@ -1,0 +1,20 @@
+.privacy-container {
+  background: white;
+  padding: 54px 90px;
+  color: black;
+  font-size: 1.3rem;
+  margin-bottom: 50px;
+
+
+}
+
+.privacy-container .back-to-home {
+  top: 0;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .privacy-container {
+    padding: 20px;
+  }
+}

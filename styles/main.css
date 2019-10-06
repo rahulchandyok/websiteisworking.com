@@ -1,13 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+body {
+  font-family: "Fira Sans", sans-serif;
+}
+
 .parent-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 30px;
+
 }
 
 .header {
   display: flex;
   margin-left: 100px;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .container {
@@ -155,16 +163,20 @@ button.is-link {
   margin-bottom: 15px;
 }
 
+button:focus {
+  outline: 0;
+  background: none;
+}
+
 @media only screen and (max-width: 800px) {
-  .parent-container {
-    margin-bottom: 50px;
-  }
 
   .header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     justify-content: center;
+    padding: 30px 5px 20px 0;
+    margin-left: 0;
   }
 
   .container {
