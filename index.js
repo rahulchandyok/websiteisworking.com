@@ -209,6 +209,7 @@ if (!Object.keys(routes).includes(path)) {
 }
 
 let onNavItemClick = pathName => {
+  if (!pathName) pathName = '/';
   window.history.pushState({}, pathName, window.location.origin + pathName);
   contentDiv.innerHTML = routes[pathName];
 };
