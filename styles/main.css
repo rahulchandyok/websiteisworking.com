@@ -168,6 +168,14 @@ button:focus {
   background: none;
 }
 
+.privacy-policy {
+  cursor: pointer;
+}
+
+button:focus {
+  background: none !important;
+}
+
 @media only screen and (max-width: 800px) {
 
   .header {
