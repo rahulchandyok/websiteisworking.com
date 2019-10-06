@@ -63,7 +63,7 @@ let homePage = `<div class="header">
     <div class="columns">
       <div class="box">
         <nav class="level">
-          <div class="label"> Check your website is working or not ? </div>
+          <div class="label"> Check your website is UP or DOWN ? </div>
           <div class="level-item">
             <input id="domain" placeholder="google.com" id="first_name" type="text" class="validate">
             <!-- <input id="domain" type="text" placeholder="google.com" autocapitalize="off" spellcheck="false"
