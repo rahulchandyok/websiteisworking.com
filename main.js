@@ -7,7 +7,7 @@ function getResponse(e) {
   document.getElementById('loader').style.display = 'block';
   document.getElementById('response').style.display = 'none';
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.responseText);
       document.getElementById('loader').style.display = 'none';
@@ -18,7 +18,7 @@ function getResponse(e) {
         ).innerHTML = `<div class="res-container" id="success">
           <div id="website-success">${response['returnedUrl']}</div>
           <div class="white-cls">is working!</div>
-          <img class="working-icon" src="images/working_icon.png" />
+          <img alt="" class="working-icon" src="images/working_icon.png" />
           </div>`;
       } else if (response['isDown'] === true && response['statusText'] === '') {
         document.getElementById(
@@ -26,16 +26,15 @@ function getResponse(e) {
         ).innerHTML = `<div class="res-container" id="error">
           <div id="website-error">${response['returnedUrl']}</div>
           <div class="white-cls">is not working!</div>
-          <img class="error-icon" src="images/not_working_icon.png" />
+          <img alt="" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
-      }
-      else {
+      } else {
         document.getElementById(
           'response'
         ).innerHTML = `<div class="res-container" id="error">
           <div id="website-error">Uh oh! There was an error:</div>
           <div class="white-cls">It doesn't look like you entered a valid domain or service name.</div>
-          <img class="error-icon" src="images/not_working_icon.png" />
+          <img alt="" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
       }
     }
