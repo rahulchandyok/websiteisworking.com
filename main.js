@@ -18,7 +18,7 @@ function getResponse(e) {
         ).innerHTML = `<div class="res-container" id="success">
           <div id="website-success">${response['returnedUrl']}</div>
           <div class="white-cls">is working!</div>
-          <img alt="" class="working-icon" src="images/working_icon.png" />
+          <img alt="icon" class="working-icon" src="images/working_icon.png" />
           </div>`;
       } else if (response['isDown'] === true && response['statusText'] === '') {
         document.getElementById(
@@ -26,7 +26,7 @@ function getResponse(e) {
         ).innerHTML = `<div class="res-container" id="error">
           <div id="website-error">${response['returnedUrl']}</div>
           <div class="white-cls">is not working!</div>
-          <img alt="" class="error-icon" src="images/not_working_icon.png" />
+          <img alt="icon" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
       } else {
         document.getElementById(
@@ -34,7 +34,7 @@ function getResponse(e) {
         ).innerHTML = `<div class="res-container" id="error">
           <div id="website-error">Uh oh! There was an error:</div>
           <div class="white-cls">It doesn't look like you entered a valid domain or service name.</div>
-          <img alt="" class="error-icon" src="images/not_working_icon.png" />
+          <img alt="icon" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
       }
     }
