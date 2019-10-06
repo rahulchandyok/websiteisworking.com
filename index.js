@@ -295,10 +295,12 @@ if (!Object.keys(routes).includes(path)) {
   contentDiv.innerHTML = routes[path];
 }
 let goToHome = () => {
+  window.scrollTo(0, 0);
   contentDiv.innerHTML = routes['/'];
 };
 
 let onNavItemClick = pathName => {
+  window.scrollTo(0, 0);
   contentDiv.innerHTML = routes['/privacy'];
   // if (!pathName) pathName = '/';
   // window.history.pushState({}, pathName, window.location.origin + pathName);
