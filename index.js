@@ -2,12 +2,12 @@ function getResponse(e) {
   let website = document.getElementById('domain').value;
   if (!website) return;
 
-  fetchHistory(website);
+  fetchHistory();
 
   document.getElementById('loader').style.display = 'block';
   document.getElementById('response').style.display = 'none';
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.responseText);
       document.getElementById('loader').style.display = 'none';
@@ -20,6 +20,7 @@ function getResponse(e) {
           <div class="white-cls">is working!</div>
           <img alt="icon" class="working-icon" src="images/working_icon.png" />
           </div>`;
+        addWebsiteToRecent(website);
       } else if (response['isDown'] === true && response['statusText'] === '') {
         document.getElementById(
           'response'
@@ -28,6 +29,7 @@ function getResponse(e) {
           <div class="white-cls">is not working!</div>
           <img alt="icon" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
+        addWebsiteToRecent(website);
       } else {
         document.getElementById(
           'response'
@@ -42,14 +44,37 @@ function getResponse(e) {
   xhttp.open('GET', 'https://api.downfor.cloud/httpcheck/' + website, true);
   xhttp.send();
 }
-function fetchHistory(website) {
-  let recentSearches = JSON.parse(localStorage.getItem('recentSearches'));
-  if (!recentSearches) recentSearches = '';
-  if (website)
-    recentSearches =
-      `<div class="recent-searches">${website}</div>` + recentSearches;
-  localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-  document.getElementById('recent').innerHTML = recentSearches;
+function fetchHistory() {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let response = JSON.parse(this.responseText);
+      let recentSearches = '';
+      for (let i = 0; i < response.length; i++) {
+        let website = response[i];
+        recentSearches = recentSearches +
+          `<div class="recent-searches">${website}</div>`;
+      }
+      console.log(this.responseText)
+      console.log(response)
+      console.log(recentSearches)
+      document.getElementById('recent').innerHTML = recentSearches;
+    }
+
+  };
+  xhttp.open('GET', 'https://website-is-working.herokuapp.com/get_recent_searches', true);
+  xhttp.send();
+}
+
+function addWebsiteToRecent(website) {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log('saved')
+    };
+  }
+  xhttp.open('GET', 'https://website-is-working.herokuapp.com/save_website?website=' + website, true);
+  xhttp.send();
 }
 let homePage = `<div class="header">
 <a href="https://www.websiteisworking.com/" title="check your website is working or not" class="logo"> <img alt="logo"
