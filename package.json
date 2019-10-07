@@ -19,8 +19,6 @@
   "homepage": "https://github.com/rahulchandyok/websiteisworking.com#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "require": "^2.4.20",
     "url": "^0.11.0"
   }
 }
