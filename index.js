@@ -1,9 +1,6 @@
 function getResponse(e) {
   let website = document.getElementById('domain').value;
   if (!website) return;
-
-  fetchHistory();
-
   document.getElementById('loader').style.display = 'block';
   document.getElementById('response').style.display = 'none';
   let xhttp = new XMLHttpRequest();
@@ -39,6 +36,7 @@ function getResponse(e) {
           <img alt="icon" class="error-icon" src="images/not_working_icon.png" />
           </div>`;
       }
+      fetchHistory();
     }
   };
   xhttp.open('GET', 'https://api.downfor.cloud/httpcheck/' + website, true);
@@ -55,9 +53,6 @@ function fetchHistory() {
         recentSearches = recentSearches +
           `<div class="recent-searches">${website}</div>`;
       }
-      console.log(this.responseText)
-      console.log(response)
-      console.log(recentSearches)
       document.getElementById('recent').innerHTML = recentSearches;
     }
 
