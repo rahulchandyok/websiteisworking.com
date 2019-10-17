@@ -2,7 +2,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  background: #fff1e4;
+  background: #fff5ec;
 }
 
 #root {
@@ -10,7 +10,7 @@ html {
   height: 100%;
   font-size: 24px;
   padding: 20px 0 60px;
-  background: #fff1e4;
+  background: #fff5ec;
 }
 
 body {

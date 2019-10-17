@@ -69,10 +69,10 @@ class Home extends Component {
                   </div>
                   <button
                     type='submit'
-                    class='button is-link is-medium'
+                    class='button is-link is-medium ping-button'
                     onClick={this.ping}
                   >
-                    ping
+                    ping!
                   </button>
                 </div>
               </div>
@@ -133,7 +133,7 @@ class Home extends Component {
           <div className='other-services'>
             <div className='dns-container'>
               <div className='dns-card' data-layout='column'>
-                <label className='dns-label'>Check DNS</label>
+                <label className='dns-label'>Check DNS records</label>
                 <div className='website-name'>{this.state.website}</div>
               </div>
             </div>
