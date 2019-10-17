@@ -1,0 +1,148 @@
+.parent-container{
+  background:#fff1e4;
+  padding: 40px;
+  font-family: monospace;
+}
+.header{
+  width: 100%;
+}
+main{
+  padding: 25px;
+  margin: 8px 75px;
+}
+.parent-container .header img {
+height: 100px;
+width: 100px;
+ }
+ label{
+   font-size: 42px;
+ }
+.ping-container .ping-input-label label{
+color: #065dff;
+}
+.ping-container{
+  width: max-content;
+}
+.input-container{
+  width: 100%;
+  margin-top: 60px;
+}
+.textfield{
+  font-size: 24px;
+}
+.history-container {
+  height: 280px;
+}
+.button-container button{
+  border-radius: 8px;
+    height: 59px;
+    width: 150px;
+    margin-left: 64px;
+    font-size: 24px;
+    background: #065dff;
+    color: white;
+    border: black;
+    border-width: 4px;
+    border-style: solid;
+    color: white;
+    box-shadow: 6px 6px black;
+}
+.history {
+  max-height: 60vh;
+  background:#095dff;
+  min-width: 200px;
+  min-height: 100%;
+  padding: 30px;
+  overflow: auto;
+  word-break: break-all;
+  color: white;
+  border: black;
+  border-width: 4px;
+  border-style: solid;
+}
+.dns-card{
+  max-height: 60vh;
+  background: #fe4564;
+  min-width: 200px;
+  height: 210px;
+  padding: 30px;
+  overflow: auto;
+  font-size: 24px;
+  border: black;
+  border-width: 4px;
+  border-style: solid;
+  color:white;
+  box-shadow: 6px 6px black;
+}
+.website-name{
+  font-size:24px;
+}
+input{
+  font-size: 32px !important;
+}
+.history-label{
+  padding: 4px;
+  font-size: 24px;
+}
+.side-content{
+  margin-left: 250px;
+}
+.result-container label{
+  color: grey;
+}
+.result-container label span{
+  color: black;
+  font-weight: bold;
+}
+.response-container{
+  margin-top: 50px;
+}
+.dns-container{
+  margin-top: 140px;
+  width: fit-content;
+}
+.full-suite-container{
+  margin-top:184px;
+  width: fit-content;
+}
+.full-suite-card{
+  max-height: 60vh;
+  background: #fe4564;
+  min-width: 200px;
+  min-height: 100%;
+  padding: 30px;
+  overflow: auto;
+  font-size: 24px;
+  border: black;
+  border-width: 4px;
+  border-style: solid;
+  color:white;
+  box-shadow: 6px 6px black;
+}
+.full-suite-label{
+
+}
+.history-list{
+  list-style-type: disc;
+}
+.header-buttons-container{
+  margin-left: 300px;
+}
+.header-button{
+  border-radius: 8px;
+  height: 45px;
+  width: 150px;
+  margin-left: 64px;
+  font-size: 24px;
+  background: #065dff;
+  color: white;
+  color: white;
+}
+.ping-loader{
+  position: fixed;
+  top: 44%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
