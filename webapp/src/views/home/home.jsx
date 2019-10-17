@@ -55,6 +55,8 @@ class Home extends Component {
                 <div className='ping-input-label' data-layout='column'>
                   <label> Check if any </label>
                   <label> website is working</label>
+                </div>
+                <div className='button-container'>
                   <div className='input-container'>
                     <TextField
                       id='standard-name'
@@ -65,8 +67,6 @@ class Home extends Component {
                       fullWidth
                     />
                   </div>
-                </div>
-                <div className='button-container'>
                   <button
                     type='submit'
                     class='button is-link is-medium'
