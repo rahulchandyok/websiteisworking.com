@@ -2,9 +2,15 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  background: #fff;
 }
+
 #root {
+  min-height: 100vh;
+  height: 100%;
   font-size: 24px;
+  padding: 20px 0 60px;
+  background: #fff;
 }
 
 body {
@@ -30,7 +36,7 @@ body {
   text-transform: uppercase;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
