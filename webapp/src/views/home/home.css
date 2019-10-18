@@ -26,7 +26,7 @@ label {
 }
 
 .ping-container .ping-input-label label {
-  color: #085dff;
+  color: #407bff;
   font-size: 5.5rem;
   font-family: Courier;
   font-weight: 800;
@@ -66,7 +66,7 @@ label {
   padding: 1rem 3rem;
   margin-left: 64px;
   font-size: 2rem;
-  background: #085dff;
+  background: #407bff;
   color: white;
   border-radius: 10px;
   color: white;
@@ -82,7 +82,7 @@ label {
     font-weight: 800;
     /*box-shadow: 5px 5px 0 #464646; */
   max-height: 40vh;
-  background: #095dff;
+  background: #407bff;
   min-width: 200px;
   min-height: 100%;
   padding: 1rem 2rem;
@@ -92,7 +92,7 @@ label {
 }
 
 .dns-card {
-  background: #fe4564;
+  background: #ff637d;
   padding: 1.5rem 2rem;
   padding-bottom: 3rem;
   font-size: 1.3rem;
@@ -103,11 +103,13 @@ label {
   border-color: #464646;
   border-style: solid;
   color: white;
-  box-shadow: 5px 5px 0 #464646;
-  background: #fe4564;
   width: 200px;
   min-height: 120px;
   overflow: auto;
+}
+
+.dns-card:hover {
+  box-shadow: 5px 5px 0 #464646;
 }
 
 .website-name {
@@ -162,7 +164,7 @@ input {
 }
 
 .full-suite-card {
-  background: #fe4564;
+  background: #ff637d;
   width: 240px;
   min-height: 100px;
   padding: 1.5rem 2rem;
@@ -175,6 +177,9 @@ input {
   border-color: #464646;
   border-style: solid;
   color: white;
+}
+
+.full-suite-card:hover {
   box-shadow: 5px 5px 0 #464646;
 }
 
@@ -197,12 +202,16 @@ font-family: Courier;
 font-size: 13pt;
 padding-top: .5rem;
 font-weight: 800;
-box-shadow: 3px 3px 0 skyblue;
-  padding: 0.7rem 1.5rem;
-  margin-left: 64px;
+/*box-shadow: 3px 3px 0 skyblue;*/
+  padding: 0.7rem 1.8rem;
+  margin-left: 8rem;
   font-size: 1.4rem;
-  background: #085dff;
+  background: #407bff;
   color: white;
+}
+
+.header-button:hover {
+       box-shadow: 3px 3px 0 skyblue;
 }
 
 .button-container > .ping-button {
@@ -214,13 +223,17 @@ font-family: Courier;
 font-size: 1.5rem !important;
 padding-top: .5rem;
 font-weight: 800;
-box-shadow: 3px 3px 0 #464646;
+box-shadow: none;
   padding: 0.7rem 3rem .8rem 3rem;
   margin-left: 64px;
   font-size: 1.4rem;
-  background: #085dff;
+  background: #407bff;
   color: white;
 
+}
+
+.ping-button:hover {
+box-shadow: 3px 3px 0 #464646
 }
 
 .cta-button {
