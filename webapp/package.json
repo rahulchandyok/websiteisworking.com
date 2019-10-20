@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "babel-plugin-jsx-control-statements": "^4.0.0",
-    "eslint-plugin-jsx-control-statements": "^2.2.1"
+    "eslint-plugin-jsx-control-statements": "^2.2.1",
+    "node-sass": "^4.12.0"
   }
 }

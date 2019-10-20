@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './home.css';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
+import Header from '../common/Header/Header';
 
 class Home extends Component {
   constructor(props) {
@@ -21,24 +22,16 @@ class Home extends Component {
   ping = () => {
     this.props.pingWebsite(this.state.website);
   };
-
+  checkDdns = () => {
+    this.props.history.push({
+      pathname: '/dns_check'
+    });
+  };
   render() {
     console.log(this.props);
     return (
       <div className='parent-container'>
-        <div
-          data-layout='row'
-          className='header'
-          data-layout-align='space-between'
-        >
-          <img src='https://websiteisworking.com/favicon.ico' />
-          <div className='header-buttons-container' data-layout='row'>
-            <button className='home header-button'>Home</button>
-            <button className='about header-button'>About</button>
-            <button className='contact-us header-button'>Contact Us</button>
-            <button className='report header-button'>Report</button>
-          </div>
-        </div>
+        <Header />
         <main data-layout='column'>
           <div className='side-content'>
             <div
@@ -131,7 +124,7 @@ class Home extends Component {
             </div>
           </div>
           <div className='other-services'>
-            <div className='dns-container'>
+            <div className='dns-container' onClick={this.checkDdns}>
               <div className='dns-card' data-layout='column'>
                 <label className='dns-label'>Check DNS records</label>
                 <div className='website-name'>{this.state.website}</div>
