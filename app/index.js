@@ -38,7 +38,7 @@ app.get('/fetch_records', async (req, res) => {
 });
 function findAllRecord(queryParams) {
   let arr = [];
-  for (let index = 0; index < 25; index++) {
+  for (let index = 0; index < 26; index++) {
     arr.push(index);
   }
   return Promise.all(

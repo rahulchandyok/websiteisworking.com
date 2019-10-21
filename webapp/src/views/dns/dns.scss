@@ -2,12 +2,14 @@
   .ping-container {
     .ping-input-label {
       label {
-        color: #e75759;
+        color: #ff4565;
       }
     }
   }
 
   .button-container {
+    margin-top: 1rem;
+
     .ping-button {
       background-color: #ff4565;
     }
@@ -19,6 +21,7 @@
     min-height: 60vh;
     max-width: 400px;
     background-color: #ff4565;
+    margin-left: 20px;
 
     .record-list-item {
       margin-bottom: 10px;
