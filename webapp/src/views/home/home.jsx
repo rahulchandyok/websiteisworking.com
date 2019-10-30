@@ -3,6 +3,7 @@ import './home.css';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Logo from '../../images/logo 2.png'
+import WorkingTick from '../../images/tick.png'
 
 class Home extends Component {
   constructor(props) {
@@ -98,10 +99,10 @@ class Home extends Component {
                       </div>
                     )}
                     {this.props.home.pingResponse.errorCode === 0 && (
-                      <label>
+                      <label data-layout="row" data-layout-align="start center">
                         {this.props.home.pingResponse.website}
                         {this.props.home.pingResponse.working === true && (
-                          <span> is working</span>
+                          <span data-layout="row" data-layout-align="start center">&nbsp;is working<img src={WorkingTick} /></span>
                         )}
                         {this.props.home.pingResponse.working === false && (
                           <span> is not working</span>

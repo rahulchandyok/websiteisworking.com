@@ -266,3 +266,6 @@ input {
 button:focus {
   outline: 0;
 }
+.result-container img{
+  height: 60px;
+}
