@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './home.css';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
+import Logo from '../../images/logo 2.png'
 
 class Home extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Home extends Component {
           className='header'
           data-layout-align='space-between'
         >
-          <img src='https://websiteisworking.com/favicon.ico' />
+          <img src={Logo} />
           <div className='header-buttons-container' data-layout='row'>
             <button className='home header-button'>Home</button>
             <button className='about header-button'>About</button>
