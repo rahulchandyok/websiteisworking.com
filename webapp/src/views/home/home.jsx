@@ -27,6 +27,7 @@ class Home extends Component {
       pathname: '/dns_check'
     });
   };
+
   render() {
     console.log(this.props);
     return (
@@ -69,11 +70,12 @@ class Home extends Component {
                   </button>
                 </div>
               </div>
-              {this.state.website && this.props.home.pingWebsiteLoader && (
-                <div className='ping-loader'>
-                  <CircularProgress size={'100px'} />
-                </div>
+              {this.state.website && this.props.home.pingWebsiteLoader ? (
+                <div className='loader'></div>
+              ) : (
+                ''
               )}
+
               {this.state.website && (
                 <div className='response-container' data-layout='column'>
                   <div className='result-container'>

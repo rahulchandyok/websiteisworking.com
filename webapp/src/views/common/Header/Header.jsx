@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import './header.scss';
+import { withRouter } from 'react-router-dom';
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
   }
-  goHome = () => {
+  _goHome = () => {
     this.props.history.push({
       pathname: '/'
+    });
+  };
+  _onAboutClick = () => {
+    this.props.history.push({
+      pathname: '/about'
     });
   };
   render() {
@@ -16,13 +23,25 @@ export default class Header extends Component {
         className='header'
         data-layout-align='space-between'
       >
-        <img src='https://websiteisworking.com/favicon.ico' />
+        <img
+          src='https://websiteisworking.com/favicon.ico'
+          onClick={this._goHome}
+        />
         <div className='header-buttons-container' data-layout='row'>
-          <button className='home header-button' onClick={this.goHome}>
+          <button className='home header-button' onClick={this._goHome}>
             Home
           </button>
-          <button className='about header-button'>About</button>
-          <button className='contact-us header-button'>Contact Us</button>
+          <button className='about header-button' onClick={this._onAboutClick}>
+            About
+          </button>
+
+          <a
+            className='contact-us header-button'
+            href='mailto: contact@websiteisworking.com'
+          >
+            Contact Us
+          </a>
+
           <button className='report header-button'>Report</button>
         </div>
       </div>
@@ -30,4 +49,4 @@ export default class Header extends Component {
   }
 }
 
-//export default Header;
+export default withRouter(Header);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 import Tooltip from '@material-ui/core/Tooltip';
-import './Map.scss';
+import './map.scss';
 import tick from '../../../images/tick.png';
 import cross from '../../../images/cross.png';
 import map_pin from '../../../images/map_pin.gif';
