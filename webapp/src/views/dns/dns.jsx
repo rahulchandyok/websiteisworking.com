@@ -52,15 +52,16 @@ class Dns extends Component {
     let resultList = {};
     const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
     dnsRecords.forEach(record => {
-      let key = `lat${record.latitude}-long${record.longitude}`;
-      if (record.status == 'active')
-        resultList[key] = { name: record.name, active: true };
-      else if (record.status == 'closed')
-        resultList[key] = { name: record.name, active: false };
-      else resultList[key] = { name: record.name, active: undefined };
+      if (record) {
+        let key = `lat${record.latitude}-long${record.longitude}`;
+        if (record.status == 'active')
+          resultList[key] = { name: record.name, active: true };
+        else if (record.status == 'closed')
+          resultList[key] = { name: record.name, active: false };
+        else resultList[key] = { name: record.name, active: undefined };
+      }
     });
     const { dnsType } = this.state;
-
     return (
       <div className='parent-container dns-home'>
         {!isDnsRecordsFetched ? <div className='loader'></div> : ''}
@@ -130,7 +131,11 @@ class Dns extends Component {
                     ping!
                   </button>
                 </div>
-                <Map resultList={resultList} />
+                {resultList && Object.keys(resultList).length !== 0 ? (
+                  <Map resultList={resultList} />
+                ) : (
+                  ''
+                )}
               </div>
               {/* {this.state.dns && this.props.dns.dnsRecords && (
                 <div className='ping-loader'>

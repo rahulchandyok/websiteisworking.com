@@ -19,6 +19,7 @@ const LightTooltip = withStyles(theme => ({
 const Map = props => {
   let { resultList } = props;
   console.log(resultList);
+  if (resultList && Object.keys(resultList).length === 0) return <div></div>;
   return (
     <svg
       version='1.1'
