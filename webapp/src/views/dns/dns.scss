@@ -75,3 +75,37 @@
   }
 
 }
+
+@media screen and (max-width: 800px) {
+  svg {
+    display: none;
+  }
+
+  .dns-home {
+    label {
+      font-size: 4.5rem !important;
+    }
+
+    .button-container {
+      position: relative;
+
+      .custom-select {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 0;
+        width: 50%;
+      }
+
+      .button {
+        margin-top: 20px;
+      }
+    }
+
+    .history.dns-results {
+      margin-top: 30px;
+      margin-left: 0;
+      max-height: initial;
+    }
+  }
+}

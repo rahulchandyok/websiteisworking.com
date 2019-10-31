@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './home.css';
+import './home.scss';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Header from '../common/Header/Header';

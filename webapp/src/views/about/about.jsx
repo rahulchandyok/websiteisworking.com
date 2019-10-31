@@ -13,6 +13,19 @@ class About extends Component {
         <Header />
         <div class='privacy-container'>
           <p>
+            Web doctor supports global Internet operations by providing free,
+            fast and accurate network diagnostic and lookup tools. Millions of
+            technology professionals use our tools to help diagnose and resolve
+            a wide range of infrastructure issues.
+          </p>
+          <p>
+            Innovation is why we come to work every day. Almost all of our
+            online tools started as internal projects that we found useful and
+            decided to share with the community. As the site has grown, we
+            continue to invest heavily to develop new tools and services.
+            Innovation is why we come to work every day.
+          </p>
+          {/*  <p>
             This page is used to inform website visitors regarding our policies
             with the collection, use, and disclosure of Personal Information if
             anyone decided to use our Service, the website is working website.
@@ -126,7 +139,7 @@ class About extends Component {
             >
               contact@websiteisworking.com
             </a>{' '}
-          </p>
+          </p>*/}
         </div>
       </div>
     );
