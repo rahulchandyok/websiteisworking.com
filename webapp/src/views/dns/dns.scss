@@ -9,6 +9,7 @@
 
   .button-container {
     margin-top: 1rem;
+    position: relative;
 
     .ping-button {
       background-color: #ff4565;
@@ -37,9 +38,16 @@
       }
 
       .record-status {
+        .ping-loader {
+          position: relative;
+          top: -7px;
+          height: 10px;
+        }
+
         .icon {
           height: 17px;
           border-radius: 50%;
+
 
           &.not-working {
             background: red;
@@ -83,8 +91,6 @@
     }
 
     .button-container {
-      position: relative;
-
       .custom-select {
         position: absolute;
         bottom: 0;
@@ -95,6 +101,16 @@
 
       .button {
         margin-top: 20px;
+      }
+    }
+
+    .record-status {
+      .ping-loader {
+        right: 10px;
+      }
+
+      .icon {
+        margin-right: 10px;
       }
     }
 

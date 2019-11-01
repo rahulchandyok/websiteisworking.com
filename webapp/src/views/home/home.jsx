@@ -81,7 +81,13 @@ class Home extends Component {
               )}
 
               {this.state.website && (
-                <div className='response-container' data-layout='column'>
+                <div
+                  className={
+                    'response-container' +
+                    (this.props.home.pingWebsiteLoader ? ' hide' : '')
+                  }
+                  data-layout='column'
+                >
                   <div className='result-container'>
                     {this.props.home.pingResponse.errorCode === 1 && (
                       <div className='error-container'>

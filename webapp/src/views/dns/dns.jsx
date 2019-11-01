@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './dns.scss';
+import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
@@ -8,6 +9,12 @@ import working_icon from '../../images/tick.png';
 import not_working_icon from '../../images/not_working_icon.png';
 import Header from '../common/Header/Header';
 import Map from '../common/Map/Map';
+
+const ColorCircularProgress = withStyles({
+  root: {
+    color: '#fff'
+  }
+})(CircularProgress);
 
 const types = [
   'A',
@@ -130,14 +137,15 @@ class Dns extends Component {
                   >
                     ping!
                   </button>
+                  {/* {!isDnsRecordsFetched ? (
+                    <div className='ping-loader'>
+                      <CircularProgress size={'40px'} />
+                    </div>
+                  ) : (
+                    ''
+                  )} */}
                 </div>
-                {!isDnsRecordsFetched ? (
-                  <div className='ping-loader'>
-                    <CircularProgress size={'40px'} />
-                  </div>
-                ) : (
-                  ''
-                )}
+
                 {resultList && Object.keys(resultList).length !== 0 ? (
                   <Map resultList={resultList} />
                 ) : (
@@ -161,18 +169,29 @@ class Dns extends Component {
                           {record && record.name}
                         </span>
                         <span className='record-status'>
-                          {record && record.status === 'active' ? (
+                          {isDnsRecordsFetched &&
+                          record &&
+                          record.status === 'active' ? (
                             <img
                               alt='icon'
                               className='icon working'
                               src={working_icon}
                             />
-                          ) : record && record.status === 'closed' ? (
+                          ) : isDnsRecordsFetched &&
+                            record &&
+                            record.status === 'closed' ? (
                             <img
                               alt='icon'
                               className='icon not-working'
                               src={not_working_icon}
                             />
+                          ) : (
+                            ''
+                          )}
+                          {!isDnsRecordsFetched ? (
+                            <div className='ping-loader'>
+                              <ColorCircularProgress size={15} />
+                            </div>
                           ) : (
                             ''
                           )}

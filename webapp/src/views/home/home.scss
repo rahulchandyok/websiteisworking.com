@@ -11,6 +11,11 @@
 main {
   padding: 25px;
   margin: 8px 75px;
+
+  .main-content {
+    position: relative;
+  }
+
 }
 
 label {
@@ -22,6 +27,10 @@ label {
   font-size: 5.5rem;
   font-family: Courier;
   font-weight: 800;
+}
+
+.ping-loader {
+  bottom: 0;
 }
 
 .ping-container {
@@ -145,6 +154,10 @@ input {
 
 .response-container {
   margin-top: 50px;
+
+  &.hide {
+    visibility: hidden;
+  }
 }
 
 .dns-container {
@@ -262,6 +275,7 @@ button:focus {
 }
 
 
+
 @media screen and (max-width: 800px) {
   .side-content {
     flex-direction: column;
@@ -275,6 +289,7 @@ button:focus {
     padding: 0;
     margin: 0;
 
+
     .button-container {
       flex-direction: column;
       margin-top: 0;
@@ -284,12 +299,15 @@ button:focus {
       }
     }
 
+
     .response-container {
       margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .history-container {
       padding-left: 0;
+      margin-top: 20px;
     }
 
     .other-services {
