@@ -39,8 +39,6 @@ class Header extends Component {
           >
             Contact Us
           </a>
-
-          <button className='report header-button'>Report</button>
         </div>
       </div>
     );

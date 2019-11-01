@@ -18,7 +18,6 @@ const LightTooltip = withStyles(theme => ({
 
 const Map = props => {
   let { resultList } = props;
-  console.log(resultList);
   if (resultList && Object.keys(resultList).length === 0) return <div></div>;
   return (
     <svg
@@ -1945,32 +1944,36 @@ const Map = props => {
               stroke-width='0.00015403827030935346'
             ></image>
           </Tooltip>
-          <Tooltip
-            classes={{
-              popper: 'custom-tooltip-popper',
-              tooltip: 'custom-tooltip'
-            }}
-            placement='top'
-            title={resultList['lat44-long-80'].name}
-          >
-            <image
-              href={
-                resultList['lat44-long-80'].active
-                  ? tick
-                  : resultList['lat44-long-80'].active == false
-                  ? cross
-                  : map_pin
-              }
-              preserveAspectRatio='none'
-              x='222'
-              y='113.86023923307617'
-              fill='#FF7F00'
-              class='highcharts-point highcharts-negative'
-              width='16'
-              transform='translate(-8,-9)'
-              height='18'
-            ></image>
-          </Tooltip>
+          {resultList['lat44-long-80'] ? (
+            <Tooltip
+              classes={{
+                popper: 'custom-tooltip-popper',
+                tooltip: 'custom-tooltip'
+              }}
+              placement='top'
+              title={resultList['lat44-long-80'].name}
+            >
+              <image
+                href={
+                  resultList['lat44-long-80'].active
+                    ? tick
+                    : resultList['lat44-long-80'].active == false
+                    ? cross
+                    : map_pin
+                }
+                preserveAspectRatio='none'
+                x='222'
+                y='113.86023923307617'
+                fill='#FF7F00'
+                class='highcharts-point highcharts-negative'
+                width='16'
+                transform='translate(-8,-9)'
+                height='18'
+              ></image>
+            </Tooltip>
+          ) : (
+            ''
+          )}
           <Tooltip
             classes={{
               popper: 'custom-tooltip-popper',

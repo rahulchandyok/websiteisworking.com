@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './dns.scss';
 import TextField from '@material-ui/core/TextField';
+import { CircularProgress } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import working_icon from '../../images/working_icon.png';
+import working_icon from '../../images/tick.png';
 import not_working_icon from '../../images/not_working_icon.png';
 import Header from '../common/Header/Header';
 import Map from '../common/Map/Map';
@@ -64,7 +65,6 @@ class Dns extends Component {
     const { dnsType } = this.state;
     return (
       <div className='parent-container dns-home'>
-        {!isDnsRecordsFetched ? <div className='loader'></div> : ''}
         <Header />
         <main data-layout='column'>
           <div className='side-content'>
@@ -131,11 +131,18 @@ class Dns extends Component {
                     ping!
                   </button>
                 </div>
-                {/* {resultList && Object.keys(resultList).length !== 0 ? (
+                {!isDnsRecordsFetched ? (
+                  <div className='ping-loader'>
+                    <CircularProgress size={'40px'} />
+                  </div>
+                ) : (
+                  ''
+                )}
+                {resultList && Object.keys(resultList).length !== 0 ? (
                   <Map resultList={resultList} />
                 ) : (
                   ''
-                )} */}
+                )}
               </div>
               {/* {this.state.dns && this.props.dns.dnsRecords && (
                 <div className='ping-loader'>

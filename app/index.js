@@ -1,10 +1,11 @@
+const express = require('express');
+const axios = require('axios');
 
-const express = require('express')
-const URL = require('url')
-const app = express()
-const { getFileData, pingWebsite } = require('./utils')
-app.use(express.json())
-const PORT = process.env.PORT || 8080
+const URL = require('url');
+const app = express();
+const { getFileData, pingWebsite } = require('./utils');
+app.use(express.json());
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
@@ -40,20 +41,25 @@ function findAllRecord(queryParams) {
   for (let index = 0; index < 26; index++) {
     arr.push(index);
   }
-  return Promise.all(
-    arr.map(async (id, index) => {
-      try {
-        const { response, body } = await get(
-          `https://dnschecker.org/api/${index}/${queryParams.replace('&', '/')}`
-        );
-        if (response && response.body) {
-          return response.body;
-        }
-      } catch {
-        console.log('error');
-      }
-    })
-  );
+
+  return axios
+    .all(
+      arr.map(async function(id, index) {
+        return axios
+          .get(
+            `https://dnschecker.org/api/${index}/${queryParams.replace(
+              '&',
+              '/'
+            )}`
+          )
+          .then(function(response) {
+            return response.data;
+          });
+      })
+    )
+    .then(function(list) {
+      return list;
+    });
 }
 app.get('/get_recent_searches', (req, res) => {
   let fileData = getFileData();

@@ -73,7 +73,9 @@ class Home extends Component {
                 </div>
               </div>
               {this.state.website && this.props.home.pingWebsiteLoader ? (
-                <div className='loader'></div>
+                <div className='ping-loader'>
+                  <CircularProgress size={'40px'} />
+                </div>
               ) : (
                 ''
               )}

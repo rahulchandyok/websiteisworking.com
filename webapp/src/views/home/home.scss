@@ -130,7 +130,7 @@ input {
   justify-content: space-between;
   width: 100%;
   position: relative;
-  top: 180px;
+  top: 80px;
   padding-bottom: 40px;
 }
 
@@ -237,15 +237,6 @@ input {
   box-shadow: 3px 3px 0 #464646;
 }
 
-.ping-loader {
-  position: fixed;
-  top: 44%;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 input {
   font-family: Courier !important;
   color: #6b6b6b !important;
@@ -333,5 +324,5 @@ button:focus {
 }
 
 .result-container img {
-  height: 60px;
+  padding-left: 10px;
 }
