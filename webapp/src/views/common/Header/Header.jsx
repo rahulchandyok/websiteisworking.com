@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './header.scss';
+import Logo from '../../../images/logo 2.png';
 import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
@@ -23,10 +24,7 @@ class Header extends Component {
         className='header'
         data-layout-align='space-between'
       >
-        <img
-          src='https://websiteisworking.com/favicon.ico'
-          onClick={this._goHome}
-        />
+        <img src={Logo} onClick={this._goHome} />
         <div className='header-buttons-container' data-layout='row'>
           <button className='home header-button' onClick={this._goHome}>
             Home
