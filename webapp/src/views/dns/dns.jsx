@@ -131,11 +131,11 @@ class Dns extends Component {
                     ping!
                   </button>
                 </div>
-                {resultList && Object.keys(resultList).length !== 0 ? (
+                {/* {resultList && Object.keys(resultList).length !== 0 ? (
                   <Map resultList={resultList} />
                 ) : (
                   ''
-                )}
+                )} */}
               </div>
               {/* {this.state.dns && this.props.dns.dnsRecords && (
                 <div className='ping-loader'>
