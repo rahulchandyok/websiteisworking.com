@@ -1,11 +1,10 @@
-const express = require('express');
-const fs = require('fs');
-const URL = require('url');
-const { get } = require('./request');
-const app = express();
-const { getFileData, pingWebsite } = require('./utils');
-app.use(express.json());
-const PORT = process.env.PORT || 8080;
+
+const express = require('express')
+const URL = require('url')
+const app = express()
+const { getFileData, pingWebsite } = require('./utils')
+app.use(express.json())
+const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);

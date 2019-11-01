@@ -1,7 +1,5 @@
 
-const express = require('express')
 const fs = require('fs')
-const URL = require('url')
 const { get } = require('./request')
 
 async function pingWebsite(website) {
