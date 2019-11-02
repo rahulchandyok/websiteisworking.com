@@ -1,1 +1,1 @@
-["google.com","amazon.com","cvvsvsgoogle.com","bluestacks.com"]
+["medium.com","myntra.com","google.com","amazon.com","cvvsvsgoogle.com","bluestacks.com"]

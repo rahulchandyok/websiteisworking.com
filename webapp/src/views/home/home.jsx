@@ -77,8 +77,8 @@ class Home extends Component {
                   <CircularProgress size={'40px'} />
                 </div>
               ) : (
-                ''
-              )}
+                  ''
+                )}
 
               {this.state.website && (
                 <div
