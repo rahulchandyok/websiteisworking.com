@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 import Tooltip from '@material-ui/core/Tooltip';
-import './map.scss';
+import './Map.scss';
 import tick from '../../../images/tick.png';
 import cross from '../../../images/cross.png';
 import map_pin from '../../../images/map_pin.gif';
@@ -1821,8 +1821,8 @@ const Map = props => {
                 resultList['lat38-long-122'].active
                   ? tick
                   : resultList['lat38-long-122'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               y='125.999220062371'
               fill='#FF7F00'
@@ -1850,8 +1850,8 @@ const Map = props => {
                 resultList['lat39-long-77'].active
                   ? tick
                   : resultList['lat39-long-77'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='227'
@@ -1876,8 +1876,8 @@ const Map = props => {
                 resultList['lat41-long-73'].active
                   ? tick
                   : resultList['lat41-long-73'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='234'
@@ -1903,8 +1903,8 @@ const Map = props => {
                 resultList['lat37-long-122'].active
                   ? tick
                   : resultList['lat37-long-122'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='150'
@@ -1930,8 +1930,8 @@ const Map = props => {
                 resultList['lat41-long-74'].active
                   ? tick
                   : resultList['lat41-long-74'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='222'
@@ -1958,8 +1958,8 @@ const Map = props => {
                   resultList['lat44-long-80'].active
                     ? tick
                     : resultList['lat44-long-80'].active == false
-                    ? cross
-                    : map_pin
+                      ? cross
+                      : map_pin
                 }
                 preserveAspectRatio='none'
                 x='222'
@@ -1972,8 +1972,8 @@ const Map = props => {
               ></image>
             </Tooltip>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <Tooltip
             classes={{
               popper: 'custom-tooltip-popper',
@@ -1987,8 +1987,8 @@ const Map = props => {
                 resultList['lat57-long61'].active
                   ? tick
                   : resultList['lat57-long61'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='368'
@@ -2013,8 +2013,8 @@ const Map = props => {
                 resultList['lat-26-long29'].active
                   ? tick
                   : resultList['lat-26-long29'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='408'
@@ -2039,8 +2039,8 @@ const Map = props => {
                 resultList['lat53-long6'].active
                   ? tick
                   : resultList['lat53-long6'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='374'
@@ -2066,8 +2066,8 @@ const Map = props => {
                 resultList['lat49-long2'].active
                   ? tick
                   : resultList['lat49-long2'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='375'
@@ -2092,8 +2092,8 @@ const Map = props => {
                 resultList['lat40-long-4'].active
                   ? tick
                   : resultList['lat40-long-4'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='351'
@@ -2118,8 +2118,8 @@ const Map = props => {
                 resultList['lat47-long10'].active
                   ? tick
                   : resultList['lat47-long10'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='375'
@@ -2144,8 +2144,8 @@ const Map = props => {
                 resultList['lat52-long-2'].active
                   ? tick
                   : resultList['lat52-long-2'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='355'
@@ -2170,8 +2170,8 @@ const Map = props => {
                 resultList['lat56-long10'].active
                   ? tick
                   : resultList['lat56-long10'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='375'
@@ -2196,8 +2196,8 @@ const Map = props => {
                 resultList['lat51-long9'].active
                   ? tick
                   : resultList['lat51-long9'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='370'
@@ -2223,8 +2223,8 @@ const Map = props => {
                 resultList['lat26-long-100'].active
                   ? tick
                   : resultList['lat26-long-100'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='188'
@@ -2250,8 +2250,8 @@ const Map = props => {
                 resultList['lat-23-long-43'].active
                   ? tick
                   : resultList['lat-23-long-43'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='285'
@@ -2276,8 +2276,8 @@ const Map = props => {
                 resultList['lat3-long102'].active
                   ? tick
                   : resultList['lat3-long102'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='532'
@@ -2302,8 +2302,8 @@ const Map = props => {
                 resultList['lat-38-long145'].active
                   ? tick
                   : resultList['lat-38-long145'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='605'
@@ -2328,8 +2328,8 @@ const Map = props => {
                 resultList['lat1-long104'].active
                   ? tick
                   : resultList['lat1-long104'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               // x='553'
@@ -2357,12 +2357,12 @@ const Map = props => {
               <image
                 href={
                   resultList['lat23-long114'] &&
-                  resultList['lat23-long114'].active
+                    resultList['lat23-long114'].active
                     ? tick
                     : resultList['lat23-long114'] &&
                       resultList['lat23-long114'].active == false
-                    ? cross
-                    : map_pin
+                      ? cross
+                      : map_pin
                 }
                 preserveAspectRatio='none'
                 x='553'
@@ -2388,8 +2388,8 @@ const Map = props => {
                 resultList['lat37-long31'].active
                   ? tick
                   : resultList['lat37-long31'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='411'
@@ -2414,8 +2414,8 @@ const Map = props => {
                 resultList['lat28-long75'].active
                   ? tick
                   : resultList['lat28-long75'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               id='lat28-long75'
               preserveAspectRatio='none'
@@ -2441,8 +2441,8 @@ const Map = props => {
                 resultList['lat57-long61'].active
                   ? tick
                   : resultList['lat57-long61'].active == false
-                  ? cross
-                  : map_pin
+                    ? cross
+                    : map_pin
               }
               preserveAspectRatio='none'
               x='462'
