@@ -4,9 +4,6 @@ import Logo from '../../../images/logo 2.png';
 import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
   _goHome = () => {
     this.props.history.push({
       pathname: '/'
@@ -24,7 +21,7 @@ class Header extends Component {
         className='header'
         data-layout-align='space-between'
       >
-        <img src={Logo} onClick={this._goHome} />
+        <img src={Logo} alt='logo' onClick={this._goHome} />
         <div className='header-buttons-container' data-layout='row'>
           <button className='home header-button' onClick={this._goHome}>
             Home

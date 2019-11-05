@@ -1,4 +1,12 @@
 .dns-home {
+  .dns-content {
+    padding: 25px;
+    margin: 8px 75px;
+    justify-content: space-evenly;
+    display: flex;
+  }
+
+
   .ping-container {
     .ping-input-label {
       label {
@@ -19,10 +27,27 @@
   .dns-results {
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
-    max-width: 400px;
+    max-width: 650px;
+    min-width: 450px;
     background-color: #ff4565;
     margin-left: 20px;
+    height: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+
+    #style-3::-webkit-scrollbar-track &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #000000;
+    }
 
     .record-list-item {
       margin-bottom: 10px;
@@ -72,12 +97,24 @@
       font-size: 2rem;
       padding: 1.2rem 3rem 1.7rem 2rem;
 
+
       &:focus {
         background: none;
       }
     }
+
+
   }
 
+}
+
+.bst-mui-menu-list {
+  min-width: 15rem;
+
+  >li {
+    font-size: 2rem;
+    padding: 6px 20px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -118,6 +155,24 @@
       margin-top: 30px;
       margin-left: 0;
       max-height: initial;
+
+
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .dns-home {
+    .dns-content {
+      margin: 0;
+      padding: 0;
+      padding-top: 25px;
+      flex-direction: column;
+
+      .history.dns-results {
+        min-width: initial;
+        width: calc(100% - 20px);
+      }
     }
   }
 }

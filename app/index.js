@@ -37,8 +37,8 @@ app.get('/fetch_records', async (req, res) => {
     .catch(err => console.log(err));
 });
 function findAllRecord(queryParams) {
-  let arr = [];
-  for (let index = 0; index < 26; index++) {
+  let arr = [0];
+  for (let index = 5; index < 26; index++) {
     arr.push(index);
   }
 
@@ -47,10 +47,7 @@ function findAllRecord(queryParams) {
       arr.map(async function(id, index) {
         return axios
           .get(
-            `https://dnschecker.org/api/${index}/${queryParams.replace(
-              '&',
-              '/'
-            )}`
+            `https://dnschecker.org/api/${id}/${queryParams.replace('&', '/')}`
           )
           .then(function(response) {
             return response.data;

@@ -3,12 +3,12 @@ import './home.scss';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Header from '../common/Header/Header';
-import Logo from '../../images/logo 2.png';
 import WorkingTick from '../../images/tick.png';
 
 class Home extends Component {
   constructor(props) {
     super(props);
+    window.scrollTo(0, 0);
     this.state = {
       website: 'google.com'
     };
@@ -26,7 +26,8 @@ class Home extends Component {
   };
   checkDdns = () => {
     this.props.history.push({
-      pathname: '/dns_check'
+      pathname: '/dns_check',
+      state: { website: this.state.website }
     });
   };
 
@@ -77,8 +78,8 @@ class Home extends Component {
                   <CircularProgress size={'40px'} />
                 </div>
               ) : (
-                  ''
-                )}
+                ''
+              )}
 
               {this.state.website && (
                 <div
@@ -110,7 +111,7 @@ class Home extends Component {
                             data-layout-align='start center'
                           >
                             &nbsp;is working
-                            <img src={WorkingTick} />
+                            <img src={WorkingTick} alt='working' />
                           </span>
                         )}
                         {this.props.home.pingResponse.working === false && (

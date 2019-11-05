@@ -1,9 +1,8 @@
 const EnvironmentUtil = {
   getApiUrl: () => {
-    let host = window.location.host
-    return ''
-
+    // let host = window.location.host
+    // return ''
   }
-}
+};
 
-export default EnvironmentUtil
+export default EnvironmentUtil;

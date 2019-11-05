@@ -10,6 +10,7 @@ const Action = {
         (response, error) => {
           dispatch(Action.toggleIsDnsRecordsFetched(true));
           if (response && response.data) {
+            console.log({ response });
             dispatch(Action.setDnsRecords(response.data));
           } else if (error) {
           }

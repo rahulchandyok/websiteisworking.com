@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './dns.scss';
-import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
@@ -18,7 +18,7 @@ const ColorCircularProgress = withStyles({
 
 const types = [
   'A',
-  'AAA',
+  'AAAA',
   'CNAME',
   'MX',
   'NS',
@@ -39,10 +39,14 @@ class Dns extends Component {
   };
   constructor(props) {
     super(props);
+    window.scrollTo(0, 0);
+    let { website } = props.location.state || {};
     this.state = {
-      website: 'google.com',
+      website: website || 'google.com',
       dnsType: 'CNAME'
     };
+    if (website)
+      this.props.fetchDnsRecords(this.state.dnsType, this.state.website);
   }
   componentDidMount() {
     // this.props.fetchDnsRecords('CNAME', 'google.com');
@@ -62,9 +66,9 @@ class Dns extends Component {
     dnsRecords.forEach(record => {
       if (record) {
         let key = `lat${record.latitude}-long${record.longitude}`;
-        if (record.status == 'active')
+        if (record.status === 'active')
           resultList[key] = { name: record.name, active: true };
-        else if (record.status == 'closed')
+        else if (record.status === 'closed')
           resultList[key] = { name: record.name, active: false };
         else resultList[key] = { name: record.name, active: undefined };
       }
@@ -74,7 +78,7 @@ class Dns extends Component {
       <div className='parent-container dns-home'>
         <Header />
         <main data-layout='column'>
-          <div className='side-content'>
+          <div className='dns-content'>
             <div
               className='main-content'
               flex='60'
@@ -97,8 +101,8 @@ class Dns extends Component {
                       className='textfield'
                       value={this.state.website}
                       onChange={this.handleChange('website')}
-                      margin='normal'
                       fullWidth
+                      margin='normal'
                     />
                   </div>
                   <Select
@@ -122,7 +126,6 @@ class Dns extends Component {
                       }
                     }}
                     label='Select'
-                    margin='normal'
                   >
                     {types.map(option => (
                       <MenuItem key={option} value={option}>
@@ -132,7 +135,7 @@ class Dns extends Component {
                   </Select>
                   <button
                     type='submit'
-                    class='button is-link is-medium ping-button'
+                    className='button is-link is-medium ping-button'
                     onClick={this.ping}
                   >
                     ping!
@@ -162,8 +165,8 @@ class Dns extends Component {
             {dnsRecords && (
               <div className='history dns-results'>
                 <ul>
-                  {dnsRecords.map(record => (
-                    <li className='record-list-item'>
+                  {dnsRecords.map((record, index) => (
+                    <li className='record-list-item' key={index}>
                       <div className='name-status'>
                         <span className='record-name'>
                           {record && record.name}

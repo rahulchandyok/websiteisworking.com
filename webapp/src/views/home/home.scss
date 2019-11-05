@@ -162,6 +162,11 @@ input {
 
 .dns-container {
   width: fit-content;
+  cursor: pointer;
+
+  label {
+    cursor: pointer;
+  }
 }
 
 .full-suite-container {

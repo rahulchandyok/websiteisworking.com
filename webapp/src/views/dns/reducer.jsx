@@ -9,42 +9,42 @@ let defaultState = {
       provider: ' Opendns',
       country: 'us'
     },
-    {
-      ips: '',
-      ips_with_link: '',
-      latitude: '39',
-      longitude: '-77',
-      name: 'Canoga Park, CA, United States',
-      provider: ' Sprint',
-      country: 'us'
-    },
-    {
-      ips: '',
-      ips_with_link: '',
-      latitude: '41',
-      longitude: '-73',
-      name: 'Holtsville NY, United States',
-      provider: ' Opendns',
-      country: 'us'
-    },
-    {
-      ips: '',
-      ips_with_link: '',
-      latitude: '37',
-      longitude: '-122',
-      name: 'Mountain View CA, United States',
-      provider: ' Google',
-      country: 'us'
-    },
-    {
-      ips: '',
-      ips_with_link: '',
-      latitude: '41',
-      longitude: '-74',
-      name: 'New York, United States',
-      provider: 'Columbia University',
-      country: 'us'
-    },
+    // {
+    //   ips: '',
+    //   ips_with_link: '',
+    //   latitude: '39',
+    //   longitude: '-77',
+    //   name: 'Canoga Park, CA, United States',
+    //   provider: ' Sprint',
+    //   country: 'us'
+    // },
+    // {
+    //   ips: '',
+    //   ips_with_link: '',
+    //   latitude: '41',
+    //   longitude: '-73',
+    //   name: 'Holtsville NY, United States',
+    //   provider: ' Opendns',
+    //   country: 'us'
+    // },
+    // {
+    //   ips: '',
+    //   ips_with_link: '',
+    //   latitude: '37',
+    //   longitude: '-122',
+    //   name: 'Mountain View CA, United States',
+    //   provider: ' Google',
+    //   country: 'us'
+    // },
+    // {
+    //   ips: '',
+    //   ips_with_link: '',
+    //   latitude: '41',
+    //   longitude: '-74',
+    //   name: 'New York, United States',
+    //   provider: 'Columbia University',
+    //   country: 'us'
+    // },
     {
       ips: '',
       ips_with_link: '',

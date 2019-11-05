@@ -3,10 +3,6 @@ import './about.scss';
 import Header from '../common/Header/Header';
 
 class About extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className='parent-container dns-home'>
