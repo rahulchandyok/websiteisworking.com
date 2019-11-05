@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import working_icon from '../../images/tick.png';
+import working_icon from '../../images/tick_circled.png';
 import not_working_icon from '../../images/not_working_icon.png';
 import Header from '../common/Header/Header';
 import Map from '../common/Map/Map';

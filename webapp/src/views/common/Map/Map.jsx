@@ -2,7 +2,7 @@ import React from 'react';
 
 import Tooltip from '@material-ui/core/Tooltip';
 import './Map.scss';
-import tick from '../../../images/tick.png';
+import tick from '../../../images/tick_circled.png';
 import cross from '../../../images/cross.png';
 import map_pin from '../../../images/map_pin.gif';
 
