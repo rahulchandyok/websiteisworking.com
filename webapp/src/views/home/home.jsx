@@ -110,7 +110,7 @@ class Home extends Component {
                             data-layout='row'
                             data-layout-align='start center'
                           >
-                           &nbsp;is working
+                           is working
                             <img src={WorkingTick} alt='working' />
                           </span>
                         )}
