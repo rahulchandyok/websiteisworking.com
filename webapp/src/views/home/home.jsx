@@ -3,7 +3,7 @@ import './home.scss';
 import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Header from '../common/Header/Header';
-import WorkingTick from '../../images/tick.png';
+import WorkingTick from '../../images/tick_circled.png';
 
 class Home extends Component {
   constructor(props) {
