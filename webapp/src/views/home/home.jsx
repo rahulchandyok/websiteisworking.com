@@ -152,7 +152,7 @@ class Home extends Component {
             {/*<div className='full-suite-container'>
               <div className='full-suite-card' data-layout='column'>
                <label className='full-suite-label'>
-                 Checkout full suite of services*/}
+                 Checkout full suite of services */}
                 </label>
               </div>
             </div>
