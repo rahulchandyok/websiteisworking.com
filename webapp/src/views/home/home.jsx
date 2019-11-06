@@ -115,7 +115,7 @@ class Home extends Component {
                           </span>
                         )}
                         {this.props.home.pingResponse.working === false && (
-                          <span> is not working</span>
+                          <span>  is not working</span>
                         )}
                       </label>
                     )}
