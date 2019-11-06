@@ -149,10 +149,10 @@ class Home extends Component {
                 <div className='website-name'>{this.state.website}</div>
               </div>
             </div>
-            //<div className='full-suite-container'>
-              //<div className='full-suite-card' data-layout='column'>
-               // <label className='full-suite-label'>
-                 // Checkout full suite of services
+            {/*<div className='full-suite-container'>
+              <div className='full-suite-card' data-layout='column'>
+               <label className='full-suite-label'>
+                 Checkout full suite of services*/}
                 </label>
               </div>
             </div>
