@@ -2234,32 +2234,36 @@ const Map = props => {
               strokeWidth='0.007177702425500976'
             ></image>
           </Tooltip>
-          <Tooltip
-            classes={{
-              popper: 'custom-tooltip-popper',
-              tooltip: 'custom-tooltip'
-            }}
-            placement='top'
-            title={resultList['lat-23-long-43'].name}
-          >
-            <image
-              href={
-                resultList['lat-23-long-43'].active
-                  ? tick
-                  : resultList['lat-23-long-43'].active === false
-                  ? cross
-                  : map_pin
-              }
-              preserveAspectRatio='none'
-              x='285'
-              y='233.30339277765424'
-              fill='#FF7F00'
-              className='highcharts-point highcharts-negative'
-              width='16'
-              transform='translate(-8,-9)'
-              height='18'
-            ></image>
-          </Tooltip>
+          {resultList['lat-23-long-43'] ? (
+            <Tooltip
+              classes={{
+                popper: 'custom-tooltip-popper',
+                tooltip: 'custom-tooltip'
+              }}
+              placement='top'
+              title={resultList['lat-23-long-43'].name}
+            >
+              <image
+                href={
+                  resultList['lat-23-long-43'].active
+                    ? tick
+                    : resultList['lat-23-long-43'].active === false
+                    ? cross
+                    : map_pin
+                }
+                preserveAspectRatio='none'
+                x='285'
+                y='233.30339277765424'
+                fill='#FF7F00'
+                className='highcharts-point highcharts-negative'
+                width='16'
+                transform='translate(-8,-9)'
+                height='18'
+              ></image>
+            </Tooltip>
+          ) : (
+            ''
+          )}
           <Tooltip
             classes={{
               popper: 'custom-tooltip-popper',

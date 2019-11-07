@@ -1,9 +1,10 @@
 .dns-home {
   .dns-content {
-    padding: 25px;
-    margin: 8px 75px;
+    padding: 25px 0;
+    margin: 8px 0;
     justify-content: space-evenly;
     display: flex;
+    flex-wrap: wrap;
   }
 
 
@@ -32,7 +33,7 @@
     background-color: #ff4565;
     margin-left: 20px;
     height: auto;
-    max-height: 60vh;
+    max-height: 70vh;
     overflow-y: auto;
 
     #style-3::-webkit-scrollbar-track &::-webkit-scrollbar-track {
@@ -122,6 +123,18 @@
   }
 
   .dns-home {
+    .dns-content {
+      margin: 0;
+      padding: 0;
+      padding-top: 25px;
+      flex-direction: column;
+
+      .history.dns-results {
+        min-width: initial;
+        width: calc(100% - 20px);
+      }
+    }
+
     label {
       font-size: 4.5rem !important;
     }
@@ -129,14 +142,16 @@
     .button-container {
       .custom-select {
         position: absolute;
-        bottom: 0;
+        margin-top: 30px;
         left: 0;
         margin-left: 0;
         width: 50%;
       }
 
       .button {
-        margin-top: 20px;
+        margin-top: 35px;
+        position: absolute;
+        right: 0;
       }
     }
 
@@ -151,27 +166,11 @@
     }
 
     .history.dns-results {
-      margin-top: 30px;
+      margin-top: 60px;
       margin-left: 0;
       max-height: initial;
 
 
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .dns-home {
-    .dns-content {
-      margin: 0;
-      padding: 0;
-      padding-top: 25px;
-      flex-direction: column;
-
-      .history.dns-results {
-        min-width: initial;
-        width: calc(100% - 20px);
-      }
     }
   }
 }
