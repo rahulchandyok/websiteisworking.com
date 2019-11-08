@@ -14,6 +14,7 @@
 
   .main-content {
     position: relative;
+    max-width: fit-content;
   }
 
 }
@@ -79,12 +80,11 @@ label {
   /*box-shadow: 5px 5px 0 #464646; */
   min-height: 40vh;
   background: #407bff;
-  min-width: 200px;
   padding: 1rem 2rem;
   overflow: auto;
   word-break: break-all;
   color: white;
-  width: 350px;
+  width: 280px;
 
   margin-left: 20px;
   height: auto;
@@ -103,7 +103,7 @@ label {
   border-color: #464646;
   border-style: solid;
   color: white;
-  width: 400px;
+  width: 100%;
   min-height: 120px;
   overflow: auto;
 }
@@ -113,6 +113,7 @@ label {
 }
 
 .website-name {
+  margin-top: 10px;
   font-size: 2rem;
   font-weight: 100;
   word-break: break-all;
@@ -132,6 +133,7 @@ input {
   margin-top: 4.5rem;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .other-services {
@@ -148,7 +150,7 @@ input {
     padding-left: 8px;
 
     >img {
-      height: 6rem;
+      height: 4rem;
       padding-left: 10px;
     }
   }
@@ -174,7 +176,8 @@ input {
 }
 
 .response-container {
-  margin-top: 50px;
+  margin-top: 24px;
+  margin-left: 16px;
 
   &.hide {
     visibility: hidden;
@@ -182,7 +185,7 @@ input {
 }
 
 .dns-container {
-  width: fit-content;
+  width: 280px;
   cursor: pointer;
 
   label {
