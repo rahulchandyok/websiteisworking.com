@@ -7,7 +7,7 @@ services:
       - "9229:9229"
     volumes:
       - ./app/db.txt:/usr/src/app/db.txt
-      - reserved1:/usr/src/app/node_modules/
+      - reserved-dev1:/usr/src/app/node_modules/
 
   webapp:
     build: ./webapp
@@ -17,9 +17,9 @@ services:
     volumes:
       - ./webapp/src:/usr/src/webapp/src
       - ./webapp/public:/usr/src/webapp/public
-      - reserved2:/usr/src/webapp/node_modules/
+      - reserved-dev2:/usr/src/webapp/node_modules/
     links:
       - app
 volumes:
-  reserved1:
-  reserved2:
+  reserved-dev1:
+  reserved-dev2:
