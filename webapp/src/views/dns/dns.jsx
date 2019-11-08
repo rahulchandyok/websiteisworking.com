@@ -201,6 +201,7 @@ class Dns extends Component {
                       </div>
 
                       <div className='record-info'>
+                        { record.ips ? (
                            <ul className="ip-list">
                          {
                            record.ips.split('<br />').map((ipText, index) => {
@@ -209,7 +210,7 @@ class Dns extends Component {
                              </li>)
                            })
                          }
-                         </ul>
+                         </ul>) : ''}
                       </div>
                     </li>
                   ))}
