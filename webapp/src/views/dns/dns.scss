@@ -55,6 +55,7 @@
       .name-status {
         display: flex;
         justify-content: space-between;
+        padding: 1rem 0;
       }
 
       .record-name {
@@ -123,7 +124,7 @@ main {
 .ip-list {
     list-style-type: disc;
     margin-left: -36px;
-    // margin-top: -4px;
+    margin-top: -8px;
 }
 
 @media screen and (max-width: 800px) {
