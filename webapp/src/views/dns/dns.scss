@@ -120,6 +120,12 @@ main {
   padding: 0 7rem;
 }
 
+.ip-list {
+    list-style-type: disc;
+    margin-left: -36px;
+    // margin-top: -4px;
+}
+
 @media screen and (max-width: 800px) {
   svg {
     display: none;

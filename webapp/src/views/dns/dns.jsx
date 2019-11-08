@@ -200,7 +200,17 @@ class Dns extends Component {
                         </span>
                       </div>
 
-                      <div className='record-info'>{record && record.ips}</div>
+                      <div className='record-info'>
+                           <ul className="ip-list">
+                         {
+                           record.ips.split('<br />').map((ipText, index) => {
+                             return (<li>
+                               <span>{ipText}</span>
+                             </li>)
+                           })
+                         }
+                         </ul>
+                      </div>
                     </li>
                   ))}
                 </ul>
