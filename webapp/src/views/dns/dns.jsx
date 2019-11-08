@@ -43,15 +43,15 @@ class Dns extends Component {
     let { website } = props.location.state || {};
     this.state = {
       website: website || 'google.com',
-      dnsType: 'CNAME'
+      dnsType: 'A'
     };
-    if (website)
-      this.props.fetchDnsRecords(this.state.dnsType, this.state.website);
   }
   componentDidMount() {
     // this.props.fetchDnsRecords('CNAME', 'google.com');
   }
-
+  componentWillUnmount = () => {
+    this.props.clearDnsData();
+  };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
@@ -60,7 +60,6 @@ class Dns extends Component {
   };
 
   render() {
-    console.log(this.props);
     let resultList = {};
     const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
     dnsRecords.forEach(record => {

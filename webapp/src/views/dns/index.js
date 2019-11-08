@@ -12,6 +12,9 @@ export const mapDispatchToProps = dispatch => {
   return {
     fetchDnsRecords: (dnsType, website) => {
       dispatch(Action.fetchDnsRecords(dnsType, website));
+    },
+    clearDnsData: () => {
+      dispatch(Action.clearDnsData());
     }
   };
 };

@@ -242,6 +242,14 @@ export default (state = defaultState, action) => {
           : !state.isDnsRecordsFetched;
       return { ...state, isDnsRecordsFetched: isFetched };
     }
+    case 'CLEAR_DNS_DATA': {
+      let { dnsRecords } = state;
+      let updateDnsRecords = JSON.parse(JSON.stringify(dnsRecords));
+      updateDnsRecords.forEach(item => {
+        delete item.status;
+      });
+      return { ...state, dnsRecords: updateDnsRecords };
+    }
     default:
       return state;
   }

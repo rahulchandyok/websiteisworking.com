@@ -10,7 +10,6 @@ const Action = {
         (response, error) => {
           dispatch(Action.toggleIsDnsRecordsFetched(true));
           if (response && response.data) {
-            console.log({ response });
             dispatch(Action.setDnsRecords(response.data));
           } else if (error) {
           }
@@ -28,6 +27,11 @@ const Action = {
     return {
       type: 'TOGGLE_IS_DNS_RECORDS_FETCHED',
       payload: val
+    };
+  },
+  clearDnsData: () => {
+    return {
+      type: 'CLEAR_DNS_DATA'
     };
   }
 };

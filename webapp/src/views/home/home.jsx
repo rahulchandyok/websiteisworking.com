@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { CircularProgress } from '@material-ui/core';
 import Header from '../common/Header/Header';
 import WorkingTick from '../../images/tick_circled.png';
+import CrossIcon from '../../images/cross.png';
 
 class Home extends Component {
   constructor(props) {
@@ -16,9 +17,10 @@ class Home extends Component {
   componentWillMount() {
     this.props.fetchRecentSearches();
   }
-
-  handleChange = name => event => {
+  componentWillUnmount = () => {
     this.props.resetPingResponse();
+  };
+  handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
   ping = () => {
@@ -32,11 +34,10 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className='parent-container'>
         <Header />
-        <main data-layout='column'>
+        <main className='home-page' data-layout='column'>
           <div className='side-content'>
             <div
               className='main-content'
@@ -66,7 +67,7 @@ class Home extends Component {
                   </div>
                   <button
                     type='submit'
-                    class='button is-link is-medium ping-button'
+                    className='button is-link is-medium ping-button'
                     onClick={this.ping}
                   >
                     ping!
@@ -96,7 +97,7 @@ class Home extends Component {
                           Uh oh! There was an error.
                         </label>
                         <br />
-                        <label class='white-cls'>
+                        <label className='white-cls'>
                           It doesn't look like you entered a valid domain or
                           service name.
                         </label>
@@ -104,18 +105,26 @@ class Home extends Component {
                     )}
                     {this.props.home.pingResponse.errorCode === 0 && (
                       <label data-layout='row' data-layout-align='start center'>
-                        {this.props.home.pingResponse.website}
+                        {this.state.website}
                         {this.props.home.pingResponse.working === true && (
                           <span
                             data-layout='row'
                             data-layout-align='start center'
+                            className='website-working'
                           >
-                           is working
+                            is working
                             <img src={WorkingTick} alt='working' />
                           </span>
                         )}
                         {this.props.home.pingResponse.working === false && (
-                          <span>&nbsp;is not working</span>
+                          <span
+                            data-layout='row'
+                            data-layout-align='start center'
+                            className='website-not-working'
+                          >
+                            <span> is not working</span>
+                            <img src={CrossIcon} alt='working' />
+                          </span>
                         )}
                       </label>
                     )}
@@ -124,22 +133,20 @@ class Home extends Component {
               )}
             </div>
 
-            <div className='history-container'>
-              <div className='history'>
-                <label className='history-label'>Popular Searches</label>
-                {this.props.home.recentSearches && (
-                  <div className='history-list'>
-                    <ul>
-                      {' '}
-                      {this.props.home.recentSearches.map(val => (
-                        <li className='' key={val}>
-                          {val}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+            <div className='history'>
+              <label className='history-label'>Popular Searches</label>
+              {this.props.home.recentSearches && (
+                <div className='history-list'>
+                  <ul>
+                    {' '}
+                    {this.props.home.recentSearches.map(val => (
+                      <li className='' key={val}>
+                        {val}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
           <div className='other-services'>

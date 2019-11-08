@@ -7,9 +7,7 @@ const Action = {
         'http://localhost:8080/get_recent_searches',
         {},
         (response, error) => {
-          console.log(response);
           if (response && response.data) {
-            console.log(response.data);
             dispatch(Action.setRecentSearches(response.data));
           } else if (error) {
           }
