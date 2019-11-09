@@ -1,12 +1,12 @@
 import HttpUtil from '../../utils/httpUtil';
+import { API_URL } from '../../App/Constants.js'
 const Action = {
   fetchDnsRecords: (dnsType, website) => {
     return async dispatch => {
       dispatch(Action.toggleIsDnsRecordsFetched());
       HttpUtil.get(
-        // 'https://dnschecker.org/api/1/CNAME/www.youtube.com',
-        `http://localhost:8080/fetch_records?${dnsType}&${website}`,
-        {},
+        API_URL.FETCH_DNS_RECORDS,
+        { dnsType: dnsType, website: website },
         (response, error) => {
           dispatch(Action.toggleIsDnsRecordsFetched(true));
           if (response && response.data) {

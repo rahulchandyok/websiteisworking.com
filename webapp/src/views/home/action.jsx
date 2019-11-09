@@ -1,10 +1,10 @@
 import HttpUtil from '../../utils/httpUtil';
+import { API_URL } from '../../App/Constants.js'
 const Action = {
   fetchRecentSearches: () => {
     return async dispatch => {
       HttpUtil.get(
-        // 'https://website-is-working.herokuapp.com/get_recent_searches',
-        'http://localhost:8080/get_recent_searches',
+        API_URL.GET_RECENT_SEARCHES,
         {},
         (response, error) => {
           if (response && response.data) {
@@ -25,7 +25,7 @@ const Action = {
     return async dispatch => {
       dispatch(Action.togglePingWebsiteLoader());
       HttpUtil.get(
-        'http://localhost:8080/ping_website',
+        API_URL.PING_WEBSITE,
         { website: website },
         (response, error) => {
           console.log(response);

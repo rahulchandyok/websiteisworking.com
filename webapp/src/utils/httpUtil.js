@@ -46,7 +46,6 @@ let makeRequest = (url, type, data, callback) => {
   if (type === 'POST') {
     reqObj = getAxiosInstance().post(url, querystring.stringify(data))
   }
-
   reqObj
     .then(response => {
       if (response)
