@@ -22,7 +22,7 @@ app.get('/ping_website', async (req, res) => {
     .end();
 });
 app.get('/fetch_records', async (req, res) => {
-  let urlParts = URL.parse(req.url, undefined);
+  let urlParts = URL.parse(req.url, true);
   let queryParams = urlParts.query;
   let response = '';
   findAllRecord(queryParams)
@@ -41,20 +41,21 @@ function findAllRecord(queryParams) {
   for (let index = 5; index < 26; index++) {
     arr.push(index);
   }
-
+  let recordType = queryParams.dnsType
+  let website = queryParams.website
   return axios
     .all(
-      arr.map(async function(id, index) {
+      arr.map(async function (id, index) {
         return axios
           .get(
-            `https://dnschecker.org/api/${id}/${queryParams.replace('&', '/')}`
+            `https://dnschecker.org/api/${id}/${recordType}/${website}`
           )
-          .then(function(response) {
+          .then(function (response) {
             return response.data;
           });
       })
     )
-    .then(function(list) {
+    .then(function (list) {
       return list;
     });
 }
