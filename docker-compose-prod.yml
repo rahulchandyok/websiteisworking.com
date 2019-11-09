@@ -1,0 +1,24 @@
+version: "3"
+services:
+  app-prod:
+    build: ./app
+    image: websiteisworkingcom_app-prod
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app/db.txt:/usr/src/app/db.txt
+      - reserved-prod1:/usr/src/app/node_modules/
+  webapp-prod:
+    build: 
+        context: ./webapp
+        dockerfile: Dockerfile.prod
+    image: websiteisworkingcom_webapp-prod
+    ports:
+      - "80:80"
+    volumes:
+      - reserved-prod2:/usr/src/webapp/node_modules/
+    links:
+      - app-prod
+volumes:
+  reserved-prod1:
+  reserved-prod2:
