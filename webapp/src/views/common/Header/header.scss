@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+
+  img {
+    cursor: pointer;
+    height: 6rem;
+  }
+
+  .contact-us {
+    text-decoration: none;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .header-button {
+    margin-left: 1rem;
+    box-shadow: none;
+  }
+}
