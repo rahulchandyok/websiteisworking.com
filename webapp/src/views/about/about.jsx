@@ -9,7 +9,7 @@ class About extends Component {
         <Header />
         <div class='privacy-container'>
           <p>
-            Web doctor supports global Internet operations by providing free,
+            Eagertools supports global Internet operations by providing free,
             fast and accurate network diagnostic and lookup tools. Millions of
             technology professionals use our tools to help diagnose and resolve
             a wide range of infrastructure issues.
