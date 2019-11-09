@@ -32,7 +32,6 @@ let getAxiosInstance = () => {
       return Promise.reject(error)
     }
   )
-
   return axios
 }
 
@@ -46,6 +45,7 @@ let makeRequest = (url, type, data, callback) => {
   if (type === 'POST') {
     reqObj = getAxiosInstance().post(url, querystring.stringify(data))
   }
+  console.log(reqObj)
   reqObj
     .then(response => {
       if (response)
