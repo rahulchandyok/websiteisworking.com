@@ -51,7 +51,7 @@ class Home extends Component {
                 data-layout-align='start end'
               >
                 <div className='ping-input-label' data-layout='column'>
-                  <label> Check if any </label>
+                  <label> Check if your </label>
                   <label> website is working</label>
                 </div>
                 <div className='button-container'>
