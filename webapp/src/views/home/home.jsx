@@ -105,7 +105,7 @@ class Home extends Component {
                     )}
                     {this.props.home.pingResponse.errorCode === 0 && (
                       <label data-layout='row' data-layout-align='start center'>
-                        {this.state.website}
+                        {this.props.home.pingResponse.website}
                         {this.props.home.pingResponse.working === true && (
                           <span
                             data-layout='row'
@@ -153,7 +153,11 @@ class Home extends Component {
             <div className='dns-container' onClick={this.checkDdns}>
               <div className='dns-card' data-layout='column'>
                 <label className='dns-label'>Check DNS records</label>
-                <div className='website-name'>{this.state.website}</div>
+                <div className='website-name'>
+                  {this.props.home.pingResponse.website
+                    ? this.props.home.pingResponse.website
+                    : this.state.website}
+                </div>
               </div>
             </div>
             {/*<div className='full-suite-container'>

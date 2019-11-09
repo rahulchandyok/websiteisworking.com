@@ -31,7 +31,7 @@ label {
 }
 
 .ping-loader {
-  bottom: 0;
+  bottom: -33px;
 }
 
 .ping-container {
@@ -307,80 +307,80 @@ button:focus {
 
 
 
-@media screen and (max-width: 800px) {
+// @media screen and (max-width: 800px) {
 
-  .side-content {
-    flex-direction: column;
+//   .side-content {
+//     flex-direction: column;
 
-    .history {
-      min-width: initial;
-      width: calc(100% - 20px);
-      margin-left: 0;
+//     .history {
+//       min-width: initial;
+//       width: calc(100% - 20px);
+//       margin-left: 0;
 
-      .history-label {
-        font-size: 3rem;
-      }
+//       .history-label {
+//         font-size: 3rem;
+//       }
 
-      .history-list {
-        font-size: 2.5rem;
-      }
-    }
-  }
+//       .history-list {
+//         font-size: 2.5rem;
+//       }
+//     }
+//   }
 
-  .parent-container {
-    padding: 20px;
-  }
+//   .parent-container {
+//     padding: 20px;
+//   }
 
-  .home-page {
-    margin: 0;
-    padding: 0;
-    padding-top: 25px;
-    flex-direction: column;
-
-
-    .button-container {
-      flex-direction: column;
-      margin-top: 0;
-
-      .input-container {
-        margin-top: 1rem;
-      }
-    }
+//   .home-page {
+//     margin: 0;
+//     padding: 0;
+//     padding-top: 25px;
+//     flex-direction: column;
 
 
-    .response-container {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+//     .button-container {
+//       flex-direction: column;
+//       margin-top: 0;
+
+//       .input-container {
+//         margin-top: 1rem;
+//       }
+//     }
 
 
-    .other-services {
-      flex-direction: column;
-      align-items: center;
-      top: 70px;
+//     .response-container {
+//       margin-top: 20px;
+//       margin-bottom: 20px;
+//     }
 
-      label {
-        font-size: 3rem;
-      }
 
-      .dns-container {
-        width: 100%;
+//     .other-services {
+//       flex-direction: column;
+//       align-items: center;
+//       top: 70px;
 
-        .dns-card {
-          min-width: 100%;
-          width: auto;
-        }
-      }
+//       label {
+//         font-size: 3rem;
+//       }
 
-      .full-suite-container {
-        width: 100%;
-        margin-top: 10px;
+//       .dns-container {
+//         width: 100%;
 
-        .full-suite-card {
-          min-width: 100%;
-          width: auto;
-        }
-      }
-    }
-  }
-}
+//         .dns-card {
+//           min-width: 100%;
+//           width: auto;
+//         }
+//       }
+
+//       .full-suite-container {
+//         width: 100%;
+//         margin-top: 10px;
+
+//         .full-suite-card {
+//           min-width: 100%;
+//           width: auto;
+//         }
+//       }
+//     }
+//   }
+// }

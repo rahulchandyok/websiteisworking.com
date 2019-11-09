@@ -122,65 +122,70 @@ main {
 }
 
 .ip-list {
-    list-style-type: disc;
-    margin-left: -36px;
-    margin-top: -8px;
+  list-style-type: disc;
+  margin-left: -36px;
+  margin-top: -8px;
 }
 
-@media screen and (max-width: 800px) {
-  svg {
-    display: none;
-  }
+// @media screen and (max-width: 800px) {
+//   svg {
+//     display: none;
+//   }
 
-  .dns-home {
-    .dns-content {
-      margin: 0;
-      padding: 0;
-      padding-top: 25px;
-      flex-direction: column;
+//   main {
+//     padding: 0;
+//   }
 
-      .history.dns-results {
-        min-width: initial;
-        width: calc(100% - 20px);
-      }
-    }
+//   .dns-home {
+//     .dns-content {
+//       margin: 0;
+//       padding: 0;
+//       padding-top: 25px;
+//       flex-direction: column;
 
-    label {
-      font-size: 4.5rem !important;
-    }
+//       .history.dns-results {
+//         min-width: initial;
+//         width: 100%;
+//         box-sizing: border-box;
+//       }
+//     }
 
-    .button-container {
-      .custom-select {
-        position: absolute;
-        margin-top: 30px;
-        left: 0;
-        margin-left: 0;
-        width: 50%;
-      }
+//     label {
+//       font-size: 4.5rem !important;
+//     }
 
-      .button {
-        margin-top: 35px;
-        position: absolute;
-        right: 0;
-      }
-    }
+//     .button-container {
+//       .custom-select {
+//         position: absolute;
+//         margin-top: 30px;
+//         left: 0;
+//         margin-left: 0;
+//         width: 50%;
+//       }
 
-    .record-status {
-      .ping-loader {
-        right: 10px;
-      }
+//       .button {
+//         margin-top: 35px;
+//         position: absolute;
+//         right: 0;
+//       }
+//     }
 
-      .icon {
-        margin-right: 10px;
-      }
-    }
+//     .record-status {
+//       .ping-loader {
+//         right: 10px;
+//       }
 
-    .history.dns-results {
-      margin-top: 60px;
-      margin-left: 0;
-      max-height: initial;
+//       .icon {
+//         margin-right: 10px;
+//       }
+//     }
+
+//     .history.dns-results {
+//       margin-top: 60px;
+//       margin-left: 0;
+//       max-height: initial;
 
 
-    }
-  }
-}
+//     }
+//   }
+// }
