@@ -130,10 +130,10 @@ class About extends Component {
             If you have any questions or suggestions about our Privacy Policy,
             do not hesitate to contact us at{' '}
             <a
-              href='mailto:contact@websiteisworking.com'
+              href='mailto:contact@eagertools.com'
               title='check any website is working or not'
             >
-              contact@websiteisworking.com
+              contact@eagertools.com
             </a>{' '}
           </p>*/}
         </div>

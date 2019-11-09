@@ -32,7 +32,7 @@ class Header extends Component {
 
           <a
             className='contact-us header-button'
-            href='mailto: contact@websiteisworking.com'
+            href='mailto: contact@eagertools.com'
           >
             Contact Us
           </a>
