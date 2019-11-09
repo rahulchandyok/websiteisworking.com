@@ -127,65 +127,65 @@ main {
   margin-top: -8px;
 }
 
-// @media screen and (max-width: 800px) {
-//   svg {
-//     display: none;
-//   }
+@media screen and (max-width: 800px) {
+  svg {
+    display: none;
+  }
 
-//   main {
-//     padding: 0;
-//   }
+  main {
+    padding: 0;
+  }
 
-//   .dns-home {
-//     .dns-content {
-//       margin: 0;
-//       padding: 0;
-//       padding-top: 25px;
-//       flex-direction: column;
+  .dns-home {
+    .dns-content {
+      margin: 0;
+      padding: 0;
+      padding-top: 25px;
+      flex-direction: column;
 
-//       .history.dns-results {
-//         min-width: initial;
-//         width: 100%;
-//         box-sizing: border-box;
-//       }
-//     }
+      .history.dns-results {
+        min-width: initial;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
 
-//     label {
-//       font-size: 4.5rem !important;
-//     }
+    label {
+      font-size: 4.5rem !important;
+    }
 
-//     .button-container {
-//       .custom-select {
-//         position: absolute;
-//         margin-top: 30px;
-//         left: 0;
-//         margin-left: 0;
-//         width: 50%;
-//       }
+    .button-container {
+      .custom-select {
+        position: absolute;
+        margin-top: 30px;
+        left: 0;
+        margin-left: 0;
+        width: 50%;
+      }
 
-//       .button {
-//         margin-top: 35px;
-//         position: absolute;
-//         right: 0;
-//       }
-//     }
+      .button {
+        margin-top: 35px;
+        position: absolute;
+        right: 0;
+      }
+    }
 
-//     .record-status {
-//       .ping-loader {
-//         right: 10px;
-//       }
+    .record-status {
+      .ping-loader {
+        right: 10px;
+      }
 
-//       .icon {
-//         margin-right: 10px;
-//       }
-//     }
+      .icon {
+        margin-right: 10px;
+      }
+    }
 
-//     .history.dns-results {
-//       margin-top: 60px;
-//       margin-left: 0;
-//       max-height: initial;
+    .history.dns-results {
+      margin-top: 60px;
+      margin-left: 0;
+      max-height: initial;
 
 
-//     }
-//   }
-// }
+    }
+  }
+}
