@@ -11,7 +11,7 @@ class Header extends Component {
   };
   _onAboutClick = () => {
     this.props.history.push({
-      pathname: '/about'
+      pathname: '/about-us'
     });
   };
   render() {
@@ -27,7 +27,7 @@ class Header extends Component {
             Home
           </button>
           <button className='about header-button' onClick={this._onAboutClick}>
-            About
+            About Us
           </button>
 
           <a
