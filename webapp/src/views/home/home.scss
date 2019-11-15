@@ -134,6 +134,16 @@ input {
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .side-content {
+    flex-direction: column;
+  }
 }
 
 .other-services {
@@ -307,14 +317,17 @@ button:focus {
 
 
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
+  .ping-loader {
+    bottom: 0;
+  }
 
   .side-content {
     flex-direction: column;
 
     .history {
       min-width: initial;
-      width: calc(100% - 20px);
+      width: calc(100% - 41px);
       margin-left: 0;
 
       .history-label {

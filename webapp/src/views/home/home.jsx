@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import './home.scss';
-import TextField from '@material-ui/core/TextField';
-import { CircularProgress } from '@material-ui/core';
-import Header from '../common/Header/Header';
-import WorkingTick from '../../images/tick_circled.png';
-import CrossIcon from '../../images/cross.png';
+import React, { Component } from "react";
+import "./home.scss";
+import TextField from "@material-ui/core/TextField";
+import { CircularProgress } from "@material-ui/core";
+import Header from "../common/Header/Header";
+import WorkingTick from "../../images/tick_circled.png";
+import CrossIcon from "../../images/cross.png";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     window.scrollTo(0, 0);
     this.state = {
-      website: 'google.com'
+      website: "google.com"
     };
   }
   componentWillMount() {
+    window.scrollTo(0, 0);
     this.props.fetchRecentSearches();
   }
   componentWillUnmount = () => {
@@ -28,46 +29,46 @@ class Home extends Component {
   };
   checkDdns = () => {
     this.props.history.push({
-      pathname: '/dns_check',
+      pathname: "/dns_check",
       state: { website: this.state.website }
     });
   };
 
   render() {
     return (
-      <div className='parent-container'>
+      <div className="parent-container">
         <Header />
-        <main className='home-page' data-layout='column'>
-          <div className='side-content'>
+        <main className="home-page" data-layout="column">
+          <div className="side-content">
             <div
-              className='main-content'
-              flex='60'
-              data-layout='column'
-              data-layout-align='start'
+              className="main-content"
+              flex="60"
+              data-layout="column"
+              data-layout-align="start"
             >
               <div
-                className='ping-container'
-                data-layout='row'
-                data-layout-align='start end'
+                className="ping-container"
+                data-layout="row"
+                data-layout-align="start end"
               >
-                <div className='ping-input-label' data-layout='column'>
+                <div className="ping-input-label" data-layout="column">
                   <label> Check if your </label>
                   <label> website is working</label>
                 </div>
-                <div className='button-container'>
-                  <div className='input-container'>
+                <div className="button-container">
+                  <div className="input-container">
                     <TextField
-                      id='standard-name'
-                      className='textfield'
+                      id="standard-name"
+                      className="textfield"
                       value={this.state.website}
-                      onChange={this.handleChange('website')}
-                      margin='normal'
+                      onChange={this.handleChange("website")}
+                      margin="normal"
                       fullWidth
                     />
                   </div>
                   <button
-                    type='submit'
-                    className='button is-link is-medium ping-button'
+                    type="submit"
+                    className="button is-link is-medium ping-button"
                     onClick={this.ping}
                   >
                     ping!
@@ -75,55 +76,55 @@ class Home extends Component {
                 </div>
               </div>
               {this.state.website && this.props.home.pingWebsiteLoader ? (
-                <div className='ping-loader'>
-                  <CircularProgress size={'40px'} />
+                <div className="ping-loader">
+                  <CircularProgress size={"40px"} />
                 </div>
               ) : (
-                ''
+                ""
               )}
 
               {this.state.website && (
                 <div
                   className={
-                    'response-container' +
-                    (this.props.home.pingWebsiteLoader ? ' hide' : '')
+                    "response-container" +
+                    (this.props.home.pingWebsiteLoader ? " hide" : "")
                   }
-                  data-layout='column'
+                  data-layout="column"
                 >
-                  <div className='result-container'>
+                  <div className="result-container">
                     {this.props.home.pingResponse.errorCode === 1 && (
-                      <div className='error-container'>
-                        <label id='website-error'>
+                      <div className="error-container">
+                        <label id="website-error">
                           Uh oh! There was an error.
                         </label>
                         <br />
-                        <label className='white-cls'>
+                        <label className="white-cls">
                           It doesn't look like you entered a valid domain or
                           service name.
                         </label>
                       </div>
                     )}
                     {this.props.home.pingResponse.errorCode === 0 && (
-                      <label data-layout='row' data-layout-align='start center'>
+                      <label data-layout="row" data-layout-align="start center">
                         {this.props.home.pingResponse.website}
                         {this.props.home.pingResponse.working === true && (
                           <span
-                            data-layout='row'
-                            data-layout-align='start center'
-                            className='website-working'
+                            data-layout="row"
+                            data-layout-align="start center"
+                            className="website-working"
                           >
                             is working
-                            <img src={WorkingTick} alt='working' />
+                            <img src={WorkingTick} alt="working" />
                           </span>
                         )}
                         {this.props.home.pingResponse.working === false && (
                           <span
-                            data-layout='row'
-                            data-layout-align='start center'
-                            className='website-not-working'
+                            data-layout="row"
+                            data-layout-align="start center"
+                            className="website-not-working"
                           >
                             <span> is not working</span>
-                            <img src={CrossIcon} alt='working' />
+                            <img src={CrossIcon} alt="working" />
                           </span>
                         )}
                       </label>
@@ -133,14 +134,14 @@ class Home extends Component {
               )}
             </div>
 
-            <div className='history'>
-              <label className='history-label'>Popular Searches</label>
+            <div className="history">
+              <label className="history-label">Popular Searches</label>
               {this.props.home.recentSearches && (
-                <div className='history-list'>
+                <div className="history-list">
                   <ul>
-                    {' '}
+                    {" "}
                     {this.props.home.recentSearches.map(val => (
-                      <li className='' key={val}>
+                      <li className="" key={val}>
                         {val}
                       </li>
                     ))}
@@ -149,15 +150,11 @@ class Home extends Component {
               )}
             </div>
           </div>
-          <div className='other-services'>
-            <div className='dns-container' onClick={this.checkDdns}>
-              <div className='dns-card' data-layout='column'>
-                <label className='dns-label'>Check DNS records</label>
-                <div className='website-name'>
-                  {this.props.home.pingResponse.website
-                    ? this.props.home.pingResponse.website
-                    : this.state.website}
-                </div>
+          <div className="other-services">
+            <div className="dns-container" onClick={this.checkDdns}>
+              <div className="dns-card" data-layout="column">
+                <label className="dns-label">Check DNS records</label>
+                <div className="website-name">{this.state.website}</div>
               </div>
             </div>
             {/*<div className='full-suite-container'>
