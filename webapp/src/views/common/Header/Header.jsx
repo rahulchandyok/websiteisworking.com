@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './header.scss';
-import Logo from '../../../images/logo 2.png';
+import { Logo } from '../../../App/Constants'
 import { withRouter } from 'react-router-dom';
 
 class Header extends Component {

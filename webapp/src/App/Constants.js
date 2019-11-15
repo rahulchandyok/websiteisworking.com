@@ -3,3 +3,4 @@ export const API_URL = {
   PING_WEBSITE: '/api/ping_website',
   FETCH_DNS_RECORDS: '/api/fetch_records'
 }
+export const Logo = 'favicon.ico'
