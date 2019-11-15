@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
-app.get("/ping_website", async (req, res) => {
+app.get("/api/ping_website", async (req, res) => {
   let urlParts = URL.parse(req.url, true);
   let website = urlParts.query.website;
   let response = await pingWebsite(website);
@@ -21,7 +21,7 @@ app.get("/ping_website", async (req, res) => {
     .send(JSON.stringify(response))
     .end();
 });
-app.get("/fetch_records", async (req, res) => {
+app.get("/api/fetch_records", async (req, res) => {
   let urlParts = URL.parse(req.url, true);
   let queryParams = urlParts.query;
   let response = "";
@@ -57,7 +57,7 @@ function findAllRecord(queryParams) {
       return list;
     });
 }
-app.get("/get_recent_searches", (req, res) => {
+app.get("/api/get_recent_searches", (req, res) => {
   let fileData = getFileData();
   let response = [];
   if (fileData) {

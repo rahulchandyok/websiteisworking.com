@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://eagertools.com/sitemap.xml
+Sitemap: https://www.eagertools.com/sitemap.xml

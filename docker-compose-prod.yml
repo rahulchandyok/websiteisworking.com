@@ -14,7 +14,7 @@ services:
         dockerfile: Dockerfile.prod
     image: websiteisworkingcom_webapp-prod
     ports:
-      - "80:80"
+      - "3000:80"
     volumes:
       - reserved-prod2:/usr/src/webapp/node_modules/
     links:
