@@ -21,6 +21,12 @@ class About extends Component {
             continue to invest heavily to develop new tools and services.
             Innovation is why we come to work every day.
           </p>
+	
+	  <p>
+	    If you have an idea for a new tool, service, or any feedback, we'd really love to hear about it.
+	    contact@eagertools.com
+	 </p>
+	
           {/*  <p>
             This page is used to inform website visitors regarding our policies
             with the collection, use, and disclosure of Personal Information if
