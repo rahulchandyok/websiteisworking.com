@@ -1,19 +1,19 @@
-version: "3"
+version: '3'
 services:
   app:
     build: ./app
     ports:
-      - "8080:8080"
-      - "9229:9229"
+      - '8080:8080'
+      - '9229:9229'
     volumes:
-      - ./app/db.txt:/usr/src/app/db.txt
+      - ./app:/usr/src/app
       - reserved-dev1:/usr/src/app/node_modules/
 
   webapp:
     build: ./webapp
     ports:
-      - "3000:3000"
-      - "35729:35729"
+      - '3000:3000'
+      - '35729:35729'
     volumes:
       - ./webapp/src:/usr/src/webapp/src
       - ./webapp/public:/usr/src/webapp/public

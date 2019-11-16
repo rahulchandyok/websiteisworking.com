@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import './dns.scss';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { CircularProgress } from '@material-ui/core';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import working_icon from '../../images/tick_circled.png';
-import not_working_icon from '../../images/not_working_icon.png';
-import Header from '../common/Header/Header';
-import Map from '../common/Map/Map';
+import React, { Component } from 'react'
+import './dns.scss'
+import { withStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import { CircularProgress } from '@material-ui/core'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import working_icon from '../../images/tick_circled.png'
+import not_working_icon from '../../images/not_working_icon.png'
+import Header from '../common/Header/Header'
+import Map from '../common/Map/Map'
 
 const ColorCircularProgress = withStyles({
   root: {
     color: '#fff'
   }
-})(CircularProgress);
+})(CircularProgress)
 
 const types = [
   'A',
@@ -27,7 +27,7 @@ const types = [
   'SOA',
   'TXT',
   'CAA'
-];
+]
 
 class Dns extends Component {
   static defaultProps = {
@@ -36,43 +36,32 @@ class Dns extends Component {
       lng: 30.33
     },
     zoom: 11
-  };
+  }
   constructor(props) {
-    super(props);
-    window.scrollTo(0, 0);
-    let { website } = props.location.state || {};
+    super(props)
+    window.scrollTo(0, 0)
+    let { website } = props.location.state || {}
     this.state = {
       website: website || 'google.com',
       dnsType: 'A'
-    };
+    }
   }
   componentDidMount() {
     // this.props.fetchDnsRecords('CNAME', 'google.com');
   }
   componentWillUnmount = () => {
-    this.props.clearDnsData();
-  };
+    this.props.clearDnsData()
+  }
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
+    this.setState({ [name]: event.target.value })
+  }
   ping = () => {
-    this.props.fetchDnsRecords(this.state.dnsType, this.state.website);
-  };
+    this.props.fetchDnsRecords(this.state.dnsType, this.state.website)
+  }
 
   render() {
-    let resultList = {};
-    const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
-    dnsRecords.forEach(record => {
-      if (record) {
-        let key = `lat${record.latitude}-long${record.longitude}`;
-        if (record.status === 'active')
-          resultList[key] = { name: record.name, active: true };
-        else if (record.status === 'closed')
-          resultList[key] = { name: record.name, active: false };
-        else resultList[key] = { name: record.name, active: undefined };
-      }
-    });
-    const { dnsType } = this.state;
+    const { dnsRecords, isDnsRecordsFetched } = this.props.dns
+    const { dnsType } = this.state
     return (
       <div className='parent-container dns-home'>
         <Header />
@@ -148,11 +137,7 @@ class Dns extends Component {
                   )} */}
                 </div>
 
-                {resultList && Object.keys(resultList).length !== 0 ? (
-                  <Map resultList={resultList} />
-                ) : (
-                  ''
-                )}
+                {dnsRecords ? <Map results={dnsRecords} /> : ''}
               </div>
               {/* {this.state.dns && this.props.dns.dnsRecords && (
                 <div className='ping-loader'>
@@ -164,24 +149,24 @@ class Dns extends Component {
             {dnsRecords && (
               <div className='history dns-results'>
                 <ul>
-                  {dnsRecords.map((record, index) => (
+                  {Object.keys(dnsRecords).map((key, index) => (
                     <li className='record-list-item' key={index}>
                       <div className='name-status'>
                         <span className='record-name'>
-                          {record && record.name}
+                          {dnsRecords[key] && dnsRecords[key].name}
                         </span>
                         <span className='record-status'>
                           {isDnsRecordsFetched &&
-                          record &&
-                          record.status === 'active' ? (
+                          dnsRecords[key] &&
+                          dnsRecords[key].active === true ? (
                             <img
                               alt='icon'
                               className='icon working'
                               src={working_icon}
                             />
                           ) : isDnsRecordsFetched &&
-                            record &&
-                            record.status === 'closed' ? (
+                            dnsRecords[key] &&
+                            dnsRecords[key].active === false ? (
                             <img
                               alt='icon'
                               className='icon not-working'
@@ -201,16 +186,20 @@ class Dns extends Component {
                       </div>
 
                       <div className='record-info'>
-                        { record.ips ? (
-                           <ul className="ip-list">
-                         {
-                           record.ips.split('<br />').map((ipText, index) => {
-                             return (<li>
-                               <span>{ipText}</span>
-                             </li>)
-                           })
-                         }
-                         </ul>) : ''}
+                        {dnsRecords[key].ips &&
+                        dnsRecords[key].ips.length > 0 ? (
+                          <ul className='ip-list'>
+                            {dnsRecords[key].ips.map((ipText, index) => {
+                              return (
+                                <li>
+                                  <span>{ipText}</span>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        ) : (
+                          ''
+                        )}
                       </div>
                     </li>
                   ))}
@@ -220,7 +209,7 @@ class Dns extends Component {
           </div>
         </main>
       </div>
-    );
+    )
   }
 }
-export default Dns;
+export default Dns
