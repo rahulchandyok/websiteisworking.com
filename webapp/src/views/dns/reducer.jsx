@@ -39,12 +39,12 @@ let defaultState = {
       active: '',
       name: 'Cape Town, South Africa'
     },
-    6: {
-      //not correct
-      ips: '',
-      id: '',
-      name: 'Christchurch, New Zealand'
-    },
+    // 6: {
+    //   //not correct
+    //   ips: '',
+    //   id: '',
+    //   name: 'Christchurch, New Zealand'
+    // },
     8: {
       ips: '',
       active: '',
@@ -55,12 +55,12 @@ let defaultState = {
       active: '',
       name: 'Bursa, Turkey'
     },
-    9: {
-      //not correct
-      ips: '',
-      id: '',
-      name: 'Vancouver, Canada'
-    },
+    // 9: {
+    //   //not correct
+    //   ips: '',
+    //   id: '',
+    //   name: 'Vancouver, Canada'
+    // },
     5: {
       ips: '',
       active: '',
@@ -86,12 +86,12 @@ let defaultState = {
       active: '',
       name: 'Jindabyne, Australia'
     },
-    16: {
-      //not correct
-      ips: '',
-      id: '',
-      name: 'Amsterdam, Netherlands'
-    },
+    // 16: {
+    //   //not correct
+    //   ips: '',
+    //   id: '',
+    //   name: 'Amsterdam, Netherlands'
+    // },
     7: {
       ips: '',
       active: '',
@@ -120,11 +120,13 @@ export default (state = defaultState, action) => {
         let active
         if (value.length === 0 || value.indexOf('error') !== -1) active = false
         else active = true
-        let newObj = Object.assign({}, defaultRecords[key], {
-          ips: value,
-          active: active
-        })
-        newRecords[key] = newObj
+        if (key in defaultRecords) {
+          let newObj = Object.assign({}, defaultRecords[key], {
+            ips: value,
+            active: active
+          })
+          newRecords[key] = newObj
+        }
       }
       return { ...state, dnsRecords: newRecords }
     }
