@@ -14,7 +14,7 @@ class About extends Component {
             professionals everyday. It is a one-stop solution to check if your
             website is actually working or not. It provides free, fast &
             accurate network diagostics & operations support globally. For us,
-            our users is of utmost important.
+            our users is of utmost importance.
           </p>
           {/* <p>
             Innovation is why we come to work every day. Almost all of our
