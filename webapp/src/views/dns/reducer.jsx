@@ -139,9 +139,13 @@ export default (state = defaultState, action) => {
     }
     case 'CLEAR_DNS_DATA': {
       let { dnsRecords } = state
-      let updateDnsRecords = JSON.parse(JSON.stringify(dnsRecords))
-      updateDnsRecords.forEach(item => {
-        delete item.status
+      let updateDnsRecords = {}
+      Object.keys(dnsRecords).forEach(item => {
+        let newObj = Object.assign({}, dnsRecords[item], {
+          ips: '',
+          active: ''
+        })
+        updateDnsRecords[item] = newObj
       })
       return { ...state, dnsRecords: updateDnsRecords }
     }
