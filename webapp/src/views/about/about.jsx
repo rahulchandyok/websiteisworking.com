@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
-import './about.scss';
-import Header from '../common/Header/Header';
+import React, { Component } from "react";
+import "./about.scss";
+import Header from "../common/Header/Header";
 
 class About extends Component {
   render() {
     return (
-      <div className='parent-container dns-home'>
+      <div className="parent-container dns-home">
         <Header />
-        <div class='privacy-container'>
+        <div class="privacy-container">
           <p>
-            Eagertools supports global Internet operations by providing free,
-            fast and accurate network diagnostic and lookup tools. Millions of
-            technology professionals use our tools to help diagnose and resolve
-            a wide range of infrastructure issues.
+            Eagertools has been founded in the year 2019 considering the
+            prevailing website issues faced by millions of technology
+            professionals everyday. It is a one-stop solution to check if your
+            website is actually working or not. It provides free, fast &
+            accurate network diagostics & operations support globally. For us,
+            our users is of utmost important.
           </p>
-          <p>
+          {/* <p>
             Innovation is why we come to work every day. Almost all of our
             online tools started as internal projects that we found useful and
             decided to share with the community. As the site has grown, we
             continue to invest heavily to develop new tools and services.
-            Innovation is why we come to work every day.
+          </p> */}
+
+          <p>
+            If you have an idea for a new tool, service, or any feedback, we'd
+            really love to hear about it. contact@eagertools.com
           </p>
-	
-	  <p>
-	    If you have an idea for a new tool, service, or any feedback, we'd really love to hear about it.
-	    contact@eagertools.com
-	 </p>
-	
+
           {/*  <p>
             This page is used to inform website visitors regarding our policies
             with the collection, use, and disclosure of Personal Information if
