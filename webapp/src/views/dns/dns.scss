@@ -127,7 +127,8 @@ main {
   margin-top: -8px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-device-width:900px),
+screen and (max-width:900px) {
   svg {
     display: none;
   }
@@ -161,12 +162,14 @@ main {
         left: 0;
         margin-left: 0;
         width: 50%;
+        top: 7rem;
       }
 
       .button {
         margin-top: 35px;
         position: absolute;
         right: 0;
+        top: 7rem;
       }
     }
 
@@ -190,7 +193,8 @@ main {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-device-width:1100px),
+screen and (max-width:1100px) {
   main {
     padding: 0;
   }

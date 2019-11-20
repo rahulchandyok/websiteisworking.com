@@ -56,7 +56,8 @@ a {
 }
 
 /*# sourceMappingURL=common.css.map */
-@media screen and (max-width: 800px) {
+@media screen and (max-device-width:800px),
+screen and (max-width:800px) {
   html {
     font-size: 54%;
   }
