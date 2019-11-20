@@ -11,7 +11,7 @@ class Home extends Component {
     super(props);
     window.scrollTo(0, 0);
     this.state = {
-      website: "google.com"
+      website: ""
     };
   }
   componentWillMount() {
@@ -23,6 +23,9 @@ class Home extends Component {
   };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
+    if (Object.keys(this.props.home.pingResponse).length) {
+      this.props.resetPingResponse();
+    }
   };
   ping = () => {
     this.props.pingWebsite(this.state.website);
@@ -58,6 +61,7 @@ class Home extends Component {
                 <div className="button-container">
                   <div className="input-container">
                     <TextField
+                      placeholder="google.com"
                       id="standard-name"
                       className="textfield"
                       value={this.state.website}
@@ -135,7 +139,7 @@ class Home extends Component {
             </div>
 
             <div className="history">
-              <label className="history-label">Popular Searches</label>
+              <label className="history-label">Recent Searches</label>
               {this.props.home.recentSearches && (
                 <div className="history-list">
                   <ul>
