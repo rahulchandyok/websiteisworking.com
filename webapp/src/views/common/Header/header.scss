@@ -14,8 +14,15 @@
 
 @media screen and (max-device-width:800px),
 screen and (max-width:800px) {
-  .header-button {
-    margin-left: 1rem;
-    box-shadow: none;
+
+
+  .header-buttons-container {
+    padding-right: 0;
+
+    .header-button {
+      margin-left: 1rem;
+      box-shadow: none;
+      padding: 0.7rem 1rem;
+    }
   }
 }
