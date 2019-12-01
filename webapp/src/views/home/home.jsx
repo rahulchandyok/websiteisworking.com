@@ -32,7 +32,7 @@ class Home extends Component {
   };
   checkDdns = () => {
     this.props.history.push({
-      pathname: "/dns_check",
+      pathname: "/dns-check",
       state: { website: this.state.website }
     });
   };
@@ -40,7 +40,6 @@ class Home extends Component {
   render() {
     return (
       <div className="parent-container">
-        <Header />
         <main className="home-page" data-layout="column">
           <div className="side-content">
             <div

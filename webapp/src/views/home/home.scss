@@ -1,5 +1,4 @@
 .parent-container {
-  background: #fff5ec;
   font-family: monospace;
   width: 100%;
   max-width: 100%;
@@ -25,7 +24,7 @@ label {
 
 .ping-container .ping-input-label label {
   color: #407bff;
-  font-size: 5.5rem;
+  font-size: 2rem;
   font-family: Courier;
   font-weight: 800;
 }
@@ -52,9 +51,9 @@ label {
 
 .button-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  margin-top: 5rem;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -71,7 +70,7 @@ label {
 }
 
 .history {
-  border-radius: 2px;
+  //border-radius: 2px;
   border-color: #464646;
   border-width: 0.4rem;
   border-style: solid;
@@ -119,10 +118,10 @@ label {
   word-break: break-all;
 }
 
-input {
-  font-size: 2.4rem !important;
-  min-width: 170px !important;
-}
+// input {
+//   font-size: 2.4rem !important;
+//   min-width: 170px !important;
+// }
 
 .history-label {
   padding: 4px;
@@ -292,10 +291,10 @@ input {
 }
 
 input {
-  font-family: Courier !important;
-  color: #6b6b6b !important;
-  font-size: 2rem !important;
-  padding: 1.2rem 1.5rem !important;
+  font-family: Courier;
+  color: #6b6b6b;
+  font-size: 2rem;
+  padding: 1.2rem 1.5rem;
 }
 
 button:focus {

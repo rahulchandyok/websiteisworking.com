@@ -6,7 +6,6 @@ class About extends Component {
   render() {
     return (
       <div className="parent-container dns-home">
-        <Header />
         <div class="privacy-container">
           <p>
             Eagertools has been founded in the year 2019 considering the

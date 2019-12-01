@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Fragment as F, Component } from "react";
 import "./dns.scss";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -29,6 +29,79 @@ const types = [
   "CAA"
 ];
 
+const DnsHeader = props => {
+  const { dnsRecords, dnsType, website } = props;
+  return (
+    <div className="dns-header-container">
+      <label className="ping-input-label">
+        {" "}
+        Check DNS record entries propagation
+      </label>
+      <div
+        className="ping-container"
+        data-layout="row"
+        data-layout-align="start end"
+      >
+        <div className="input-container">
+          <TextField
+            id="standard-name"
+            className="textfield"
+            value={website}
+            onChange={props.handleChange("website")}
+            fullWidth
+            margin="normal"
+            placeholder="google.com"
+            autoComplete="off"
+          />
+        </div>
+        <div className="button-container">
+          <Select
+            id="standard-select-currency"
+            select
+            onChange={props.handleChange("dnsType")}
+            value={dnsType}
+            className="custom-select"
+            classes={{
+              root: "bst-mui-select",
+              select: "bst-mui-select-select"
+            }}
+            MenuProps={{
+              MenuListProps: {
+                classes: {
+                  root: "bst-mui-menu-list"
+                }
+              },
+              BackdropProps: {
+                invisible: false
+              }
+            }}
+            label="Select"
+          >
+            {types.map(option => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+          <button
+            type="submit"
+            className="button is-link is-medium ping-button"
+            onClick={props.ping}
+          >
+            ping!
+          </button>
+          {/* {!isDnsRecordsFetched ? (
+    <div className='ping-loader'>
+      <CircularProgress size={'40px'} />
+    </div>
+  ) : (
+    ''
+  )} */}
+        </div>
+      </div>
+    </div>
+  );
+};
 class Dns extends Component {
   static defaultProps = {
     center: {
@@ -40,7 +113,7 @@ class Dns extends Component {
   constructor(props) {
     super(props);
     window.scrollTo(0, 0);
-    let { website } = props.location.state || {};
+    let { website } = (props.location && props.location.state) || {};
     this.state = {
       website: website || "",
       dnsType: "A"
@@ -60,156 +133,88 @@ class Dns extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
     const { dnsType } = this.state;
     return (
-      <div className="parent-container dns-home">
-        <Header />
-        <main data-layout="column">
-          <div className="dns-content">
-            <div
-              className="main-content"
-              flex="60"
-              data-layout="column"
-              data-layout-align="start"
-            >
-              <div
-                className="ping-container"
-                data-layout="row"
-                data-layout-align="start end"
-              >
-                <div className="ping-input-label" data-layout="column">
-                  <label> Check DNS record </label>
-                  <label> entries propagation</label>
-                </div>
-                <div className="button-container">
-                  <div className="input-container">
-                    <TextField
-                      id="standard-name"
-                      className="textfield"
-                      value={this.state.website}
-                      onChange={this.handleChange("website")}
-                      fullWidth
-                      margin="normal"
-                      placeholder="google.com"
-                    />
+      <F>
+        {this.props.isNav ? (
+          <DnsHeader
+            {...this.props.dns}
+            dnsType={dnsType}
+            website={this.state.website}
+            handleChange={this.handleChange}
+            ping={this.ping}
+          />
+        ) : (
+          <div className="parent-container dns-home">
+            <main data-layout="column">
+              <div className="dns-content">
+                {dnsRecords && (
+                  <div className="history dns-results">
+                    <ul>
+                      {Object.keys(dnsRecords).map((key, index) => (
+                        <li className="record-list-item" key={index}>
+                          <div className="name-status">
+                            <span className="record-name">
+                              {dnsRecords[key] && dnsRecords[key].name}
+                            </span>
+                            <span className="record-status">
+                              {isDnsRecordsFetched &&
+                              dnsRecords[key] &&
+                              dnsRecords[key].active === true ? (
+                                <img
+                                  alt="icon"
+                                  className="icon working"
+                                  src={working_icon}
+                                />
+                              ) : isDnsRecordsFetched &&
+                                dnsRecords[key] &&
+                                dnsRecords[key].active === false ? (
+                                <img
+                                  alt="icon"
+                                  className="icon not-working"
+                                  src={not_working_icon}
+                                />
+                              ) : (
+                                ""
+                              )}
+                              {!isDnsRecordsFetched ? (
+                                <div className="ping-loader">
+                                  <ColorCircularProgress size={15} />
+                                </div>
+                              ) : (
+                                ""
+                              )}
+                            </span>
+                          </div>
+
+                          <div className="record-info">
+                            {dnsRecords[key].ips &&
+                            dnsRecords[key].ips.length > 0 ? (
+                              <ul className="ip-list">
+                                {dnsRecords[key].ips.map((ipText, index) => {
+                                  return (
+                                    <li>
+                                      <span>{ipText}</span>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <Select
-                    id="standard-select-currency"
-                    select
-                    onChange={this.handleChange("dnsType")}
-                    value={dnsType}
-                    className="custom-select"
-                    classes={{
-                      root: "bst-mui-select",
-                      select: "bst-mui-select-select"
-                    }}
-                    MenuProps={{
-                      MenuListProps: {
-                        classes: {
-                          root: "bst-mui-menu-list"
-                        }
-                      },
-                      BackdropProps: {
-                        invisible: false
-                      }
-                    }}
-                    label="Select"
-                  >
-                    {types.map(option => (
-                      <MenuItem key={option} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  <button
-                    type="submit"
-                    className="button is-link is-medium ping-button"
-                    onClick={this.ping}
-                  >
-                    ping!
-                  </button>
-                  {/* {!isDnsRecordsFetched ? (
-                    <div className='ping-loader'>
-                      <CircularProgress size={'40px'} />
-                    </div>
-                  ) : (
-                    ''
-                  )} */}
-                </div>
-
-                {dnsRecords ? <Map results={dnsRecords} /> : ""}
+                )}
               </div>
-              {/* {this.state.dns && this.props.dns.dnsRecords && (
-                <div className='ping-loader'>
-                  <CircularProgress size={'100px'} />
-                </div>
-              )} */}
-            </div>
-
-            {dnsRecords && (
-              <div className="history dns-results">
-                <ul>
-                  {Object.keys(dnsRecords).map((key, index) => (
-                    <li className="record-list-item" key={index}>
-                      <div className="name-status">
-                        <span className="record-name">
-                          {dnsRecords[key] && dnsRecords[key].name}
-                        </span>
-                        <span className="record-status">
-                          {isDnsRecordsFetched &&
-                          dnsRecords[key] &&
-                          dnsRecords[key].active === true ? (
-                            <img
-                              alt="icon"
-                              className="icon working"
-                              src={working_icon}
-                            />
-                          ) : isDnsRecordsFetched &&
-                            dnsRecords[key] &&
-                            dnsRecords[key].active === false ? (
-                            <img
-                              alt="icon"
-                              className="icon not-working"
-                              src={not_working_icon}
-                            />
-                          ) : (
-                            ""
-                          )}
-                          {!isDnsRecordsFetched ? (
-                            <div className="ping-loader">
-                              <ColorCircularProgress size={15} />
-                            </div>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                      </div>
-
-                      <div className="record-info">
-                        {dnsRecords[key].ips &&
-                        dnsRecords[key].ips.length > 0 ? (
-                          <ul className="ip-list">
-                            {dnsRecords[key].ips.map((ipText, index) => {
-                              return (
-                                <li>
-                                  <span>{ipText}</span>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            </main>
           </div>
-        </main>
-      </div>
+        )}
+      </F>
     );
   }
 }

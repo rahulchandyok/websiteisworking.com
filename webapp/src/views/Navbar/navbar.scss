@@ -1,0 +1,57 @@
+.slick-list {
+  overflow: visible !important;
+
+  &:focus {
+    outline: 0;
+  }
+
+  .slick-slide {
+    height: 50vh !important;
+    transition-duration: 0.5s;
+
+    &.slick-active {
+      height: 54vh !important;
+      margin-top: -2vh;
+      transition-duration: 0.5s;
+    }
+
+    >div {
+      height: 100%;
+      padding: 0 5px;
+
+      &:focus {
+        outline: 0;
+
+      }
+
+      >div {
+        height: 100%;
+
+        &:focus {
+          outline: 0;
+
+        }
+      }
+    }
+
+
+  }
+
+}
+
+.header {
+  color: rgb(255, 99, 80);
+  padding: 30px 40px 40px;
+}
+
+.home {
+  background: rgb(121, 206, 109);
+  height: 100%;
+  border-radius: 15px;
+}
+
+.about {
+  background: rgb(255, 215, 98);
+  height: 100%;
+  border-radius: 15px;
+}
