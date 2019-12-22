@@ -2,14 +2,12 @@
   font-family: monospace;
   width: 100%;
   max-width: 100%;
-  padding: 0 40px 40px;
   box-sizing: border-box;
-  min-height: 100vh;
 }
 
-.home-page {
-  margin: 8px 75px;
+.home-content {
   padding: 25px;
+  flex: 2;
 
   .main-content {
     position: relative;
@@ -49,29 +47,13 @@ label {
   font-size: 2rem;
 }
 
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-top: 1rem;
-  width: 100%;
-}
 
-.button-container button {
-  border-radius: 8px;
-  padding: 1rem 3rem;
-  margin-left: 64px;
-  font-size: 2rem;
-  background: #407bff;
-  color: white;
-  border-radius: 10px;
-  color: white;
-  box-shadow: 0 20px 50px rgba(43, 36, 41, 0.7);
-}
+
+
 
 .history {
-  //border-radius: 2px;
-  border-color: #464646;
+  width: 100%;
+  border-radius: 15px;
   border-width: 0.4rem;
   border-style: solid;
   font-family: Courier;
@@ -83,7 +65,7 @@ label {
   overflow: auto;
   word-break: break-all;
   color: white;
-  width: 280px;
+  min-width: 280px;
 
   margin-left: 20px;
   height: auto;
@@ -129,6 +111,7 @@ label {
 }
 
 .side-content {
+  flex: 1;
   margin-top: 4.5rem;
   display: flex;
   justify-content: space-between;
@@ -145,35 +128,36 @@ label {
   }
 }
 
-.other-services {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-  top: 80px;
-  padding-bottom: 40px;
-}
+.response-container {
+  margin-top: 24px;
 
-.result-container {
-  .website-working {
-    padding-left: 8px;
-
-    >img {
-      height: 4rem;
-      padding-left: 10px;
-    }
+  &.hide {
+    visibility: hidden;
   }
 
-  label {
-    color: grey;
-
-    .website-not-working {
+  .result-container {
+    .website-working {
       padding-left: 8px;
 
-      img {
-        height: 2rem;
-        width: auto;
+      >img {
+        height: 4rem;
         padding-left: 10px;
+      }
+    }
+
+    label {
+      color: #464646;
+      flex-wrap: wrap;
+      font-size: 2rem;
+
+      .website-not-working {
+        // padding-left: 8px;
+
+        img {
+          height: 2rem;
+          width: auto;
+          padding-left: 10px;
+        }
       }
     }
   }
@@ -182,15 +166,6 @@ label {
 .result-container label span {
   color: #464646;
   font-weight: bold;
-}
-
-.response-container {
-  margin-top: 24px;
-  margin-left: 16px;
-
-  &.hide {
-    visibility: hidden;
-  }
 }
 
 .dns-container {
@@ -317,12 +292,17 @@ button:focus {
 
 
 @media (max-width: 800px) {
+  .parent-container {
+    height: 100%;
+  }
+
   .ping-loader {
     bottom: 0;
   }
 
   .side-content {
     flex-direction: column;
+    flex: 2;
 
     .history {
       min-width: initial;
@@ -339,14 +319,9 @@ button:focus {
     }
   }
 
-  .parent-container {
-    padding: 20px;
-  }
-
-  .home-page {
+  .home-content {
     margin: 0;
-    padding: 0;
-    padding-top: 25px;
+    padding: 15px;
     flex-direction: column;
 
 
@@ -364,35 +339,67 @@ button:focus {
       margin-top: 20px;
       margin-bottom: 20px;
     }
+  }
+}
 
 
-    .other-services {
-      flex-direction: column;
-      align-items: center;
-      top: 70px;
 
-      label {
-        font-size: 3rem;
-      }
+.home-header-container {
+  background: rgb(121, 206, 109);
+  flex: 2;
 
-      .dns-container {
-        width: 100%;
+  label {
+    font-weight: 600;
+    font-size: 3rem;
+  }
 
-        .dns-card {
-          min-width: 100%;
-          width: auto;
-        }
-      }
-
-      .full-suite-container {
-        width: 100%;
-        margin-top: 10px;
-
-        .full-suite-card {
-          min-width: 100%;
-          width: auto;
-        }
-      }
+  .input-container {
+    input {
+      color: rgb(21, 62, 200);
+      font-weight: 200;
+      font-family: Courier;
+      font-size: 2.5rem;
+      border-bottom: 2px solid #003dcc;
     }
+  }
+
+  .home-button-container {
+    color: rgb(21, 62, 200);
+    display: flex;
+    justify-content: flex-end;
+
+    .ping-button {
+      margin-left: 0;
+      background: rgb(0, 62, 204);
+    }
+  }
+}
+
+
+.home-details {
+  display: flex;
+  justify-content: space-between;
+
+  .check-dns-button {
+    cursor: pointer;
+    width: 20rem;
+    background-color: #79ce6d;
+    padding: 20px;
+    color: rgb(0, 61, 204);
+    font-size: 2rem;
+    border-radius: 15px;
+    margin-top: 5rem;
+  }
+}
+
+@media screen and (min-device-width:800px),
+screen and (min-width:800px) {
+  .home-content {
+    flex-direction: row;
+
+    .side-content {
+      margin: 0;
+    }
+
   }
 }

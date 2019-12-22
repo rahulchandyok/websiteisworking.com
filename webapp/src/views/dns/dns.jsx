@@ -32,7 +32,7 @@ const types = [
 const DnsHeader = props => {
   const { dnsRecords, dnsType, website } = props;
   return (
-    <div className="dns-header-container">
+    <div className="card dns-header-container">
       <label className="ping-input-label">
         {" "}
         Check DNS record entries propagation
@@ -85,7 +85,8 @@ const DnsHeader = props => {
           </Select>
           <button
             type="submit"
-            className="button is-link is-medium ping-button"
+            disabled={!website}
+            className="custom-button is-link is-medium ping-button"
             onClick={props.ping}
           >
             ping!
@@ -131,6 +132,12 @@ class Dns extends Component {
   ping = () => {
     this.props.fetchDnsRecords(this.state.dnsType, this.state.website);
   };
+  check_website_is_working = () => {
+    this.props.history.push({
+      pathname: "/",
+      state: { website: this.state.website }
+    });
+  };
 
   render() {
     console.log(this.props);
@@ -148,10 +155,25 @@ class Dns extends Component {
           />
         ) : (
           <div className="parent-container dns-home">
-            <main data-layout="column">
+            <main data-layout="row">
+              {window.innerWidth > 800 ? (
+                <div className={"dns-left-side"}>
+                  {" "}
+                  <DnsHeader
+                    {...this.props.dns}
+                    dnsType={dnsType}
+                    website={this.state.website}
+                    handleChange={this.handleChange}
+                    ping={this.ping}
+                  />
+                  {/* {dnsRecords ? <Map results={dnsRecords} /> : ""} */}
+                </div>
+              ) : (
+                ""
+              )}
               <div className="dns-content">
                 {dnsRecords && (
-                  <div className="history dns-results">
+                  <div className=" dns-results">
                     <ul>
                       {Object.keys(dnsRecords).map((key, index) => (
                         <li className="record-list-item" key={index}>
@@ -212,6 +234,15 @@ class Dns extends Component {
                 )}
               </div>
             </main>
+            <div className="dns-details">
+              <div></div>
+              <div
+                className="website-is-working-button"
+                onClick={this.check_website_is_working}
+              >
+                <span>Check if your website is working</span>
+              </div>
+            </div>
           </div>
         )}
       </F>

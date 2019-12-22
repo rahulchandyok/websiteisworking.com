@@ -14,6 +14,8 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import About from "../about/about";
+import Home from "../home";
 
 class Navbar extends Component {
   constructor(props) {
@@ -53,6 +55,8 @@ class Navbar extends Component {
     var settings = {
       centerMode: true,
       infinite: true,
+      centerPadding: "15px",
+      infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -66,14 +70,15 @@ class Navbar extends Component {
     };
     return (
       <F>
-        <div className="header">eagertool</div>
         <Slider {...settings}>
-          <div className="home"></div>
+          <div>
+            <Home isNav={true} />
+          </div>
           <div>
             <Dns isNav={true} />
           </div>
           <div>
-            <div className="about"></div>
+            <About isNav={true} />
           </div>
         </Slider>
       </F>
