@@ -78,7 +78,7 @@ class Navbar extends Component {
             <Dns isNav={true} />
           </div>
           <div>
-            <About isNav={true} />
+            <About isNav={true} isMobile={true} />
           </div>
         </Slider>
       </F>

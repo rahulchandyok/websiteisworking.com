@@ -1,6 +1,10 @@
 .slick-list {
   overflow: visible !important;
 
+  .parent-container {
+    height: 100%;
+  }
+
   &:focus {
     outline: 0;
   }
@@ -42,6 +46,10 @@
 .header {
   color: rgb(255, 99, 80);
   padding: 30px 40px 40px;
+  box-sizing: border-box;
+  height: 10rem;
+  display: flex;
+  align-items: center;
 }
 
 .home {

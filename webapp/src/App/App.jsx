@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import Routes from "./routes";
 import store from "./store";
 import Navbar from "../views/Navbar";
+import Footer from "../views/Footer";
 
 class App extends Component {
   state = { width: window.innerWidth };
@@ -17,12 +18,14 @@ class App extends Component {
     this.setState({ width: window.innerWidth });
   };
   render() {
+    let isMobile = this.state.width < 800;
     return (
       <Provider store={store}>
         <div className="header">eagertool</div>
         <Router>
-          {this.state.width < 800 ? <Navbar /> : ""}
-          <Routes />
+          {isMobile ? <Navbar /> : ""}
+          <Routes isMobile={isMobile} />
+          <Footer />
         </Router>
       </Provider>
     );

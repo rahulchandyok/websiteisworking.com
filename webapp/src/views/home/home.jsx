@@ -1,10 +1,12 @@
 import React, { Fragment as F, Component } from "react";
 import "./home.scss";
+import { withRouter } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import { CircularProgress } from "@material-ui/core";
 import Header from "../common/Header/Header";
 import WorkingTick from "../../images/tick_circled.png";
 import CrossIcon from "../../images/cross.png";
+import { PATHS } from "../../App/Constants";
 
 const HomeHeader = props => {
   const { website, ping, handleChange, home } = props;
@@ -55,7 +57,7 @@ const HomeHeader = props => {
             )}
             {home.pingResponse.errorCode === 0 && (
               <label data-layout="row" data-layout-align="start center">
-                {home.pingResponse.website}
+                <span className="url">{home.pingResponse.website}</span>
                 {home.pingResponse.working === true && (
                   <span
                     data-layout="row"
@@ -111,12 +113,13 @@ class Home extends Component {
   };
   checkDdns = () => {
     this.props.history.push({
-      pathname: "/dns-check",
+      pathname: PATHS.DNS,
       state: { website: this.state.website }
     });
   };
 
   render() {
+    let { isMobile } = this.props;
     return (
       <div className="parent-container ">
         {this.props.isNav ? (
@@ -129,7 +132,7 @@ class Home extends Component {
         ) : (
           <div className="home-content">
             <main data-layout="row">
-              {window.innerWidth > 800 ? (
+              {!isMobile ? (
                 <HomeHeader
                   home={this.props.home}
                   website={this.state.website}
@@ -140,48 +143,41 @@ class Home extends Component {
                 ""
               )}
               <div className="side-content">
-                {/* <div
-                  className="main-content"
-                  flex="60"
-                  data-layout="column"
-                  data-layout-align="start"
-                >
-                  {this.state.website && this.props.home.pingWebsiteLoader ? (
-                    <div className="ping-loader">
-                      <CircularProgress size={"40px"} />
+                <div className="relative">
+                  <div className="history">
+                    <label className="history-label">Recent Searches</label>
+                    {this.props.home.recentSearches && (
+                      <div className="history-list">
+                        <ul>
+                          {" "}
+                          {this.props.home.recentSearches.map(val => (
+                            <li className="" key={val}>
+                              {val}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  {!isMobile ? (
+                    <div className="home-details">
+                      <div
+                        className="check-dns-button"
+                        onClick={this.checkDdns}
+                      >
+                        <span>Check Dns records</span>
+                      </div>
                     </div>
                   ) : (
                     ""
                   )}
-                </div> */}
-
-                <div className="history">
-                  <label className="history-label">Recent Searches</label>
-                  {this.props.home.recentSearches && (
-                    <div className="history-list">
-                      <ul>
-                        {" "}
-                        {this.props.home.recentSearches.map(val => (
-                          <li className="" key={val}>
-                            {val}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               </div>
             </main>
-            <div className="home-details">
-              <div></div>
-              <div className="check-dns-button" onClick={this.checkDdns}>
-                <span>Check Dns records</span>
-              </div>
-            </div>
           </div>
         )}
       </div>
     );
   }
 }
-export default Home;
+export default withRouter(Home);

@@ -1,5 +1,6 @@
 import React, { Fragment as F, Component } from "react";
 import "./dns.scss";
+import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { CircularProgress } from "@material-ui/core";
@@ -9,6 +10,7 @@ import working_icon from "../../images/tick_circled.png";
 import not_working_icon from "../../images/not_working_icon.png";
 import Header from "../common/Header/Header";
 import Map from "../common/Map/Map";
+import { PATHS } from "../../App/Constants";
 
 const ColorCircularProgress = withStyles({
   root: {
@@ -134,17 +136,17 @@ class Dns extends Component {
   };
   check_website_is_working = () => {
     this.props.history.push({
-      pathname: "/",
+      pathname: PATHS.HOME,
       state: { website: this.state.website }
     });
   };
 
   render() {
-    console.log(this.props);
+    let { isMobile } = this.props;
     const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
     const { dnsType } = this.state;
     return (
-      <F>
+      <div className="parent-container">
         {this.props.isNav ? (
           <DnsHeader
             {...this.props.dns}
@@ -156,7 +158,7 @@ class Dns extends Component {
         ) : (
           <div className="parent-container dns-home">
             <main data-layout="row">
-              {window.innerWidth > 800 ? (
+              {!isMobile ? (
                 <div className={"dns-left-side"}>
                   {" "}
                   <DnsHeader
@@ -173,80 +175,86 @@ class Dns extends Component {
               )}
               <div className="dns-content">
                 {dnsRecords && (
-                  <div className=" dns-results">
-                    <ul>
-                      {Object.keys(dnsRecords).map((key, index) => (
-                        <li className="record-list-item" key={index}>
-                          <div className="name-status">
-                            <span className="record-name">
-                              {dnsRecords[key] && dnsRecords[key].name}
-                            </span>
-                            <span className="record-status">
-                              {isDnsRecordsFetched &&
-                              dnsRecords[key] &&
-                              dnsRecords[key].active === true ? (
-                                <img
-                                  alt="icon"
-                                  className="icon working"
-                                  src={working_icon}
-                                />
-                              ) : isDnsRecordsFetched &&
+                  <div className="relative">
+                    <div className=" dns-results">
+                      <ul>
+                        {Object.keys(dnsRecords).map((key, index) => (
+                          <li className="record-list-item" key={index}>
+                            <div className="name-status">
+                              <span className="record-name">
+                                {dnsRecords[key] && dnsRecords[key].name}
+                              </span>
+                              <span className="record-status">
+                                {isDnsRecordsFetched &&
                                 dnsRecords[key] &&
-                                dnsRecords[key].active === false ? (
-                                <img
-                                  alt="icon"
-                                  className="icon not-working"
-                                  src={not_working_icon}
-                                />
-                              ) : (
-                                ""
-                              )}
-                              {!isDnsRecordsFetched ? (
-                                <div className="ping-loader">
-                                  <ColorCircularProgress size={15} />
-                                </div>
-                              ) : (
-                                ""
-                              )}
-                            </span>
-                          </div>
+                                dnsRecords[key].active === true ? (
+                                  <img
+                                    alt="icon"
+                                    className="icon working"
+                                    src={working_icon}
+                                  />
+                                ) : isDnsRecordsFetched &&
+                                  dnsRecords[key] &&
+                                  dnsRecords[key].active === false ? (
+                                  <img
+                                    alt="icon"
+                                    className="icon not-working"
+                                    src={not_working_icon}
+                                  />
+                                ) : (
+                                  ""
+                                )}
+                                {!isDnsRecordsFetched ? (
+                                  <div className="ping-loader">
+                                    <ColorCircularProgress size={15} />
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                              </span>
+                            </div>
 
-                          <div className="record-info">
-                            {dnsRecords[key].ips &&
-                            dnsRecords[key].ips.length > 0 ? (
-                              <ul className="ip-list">
-                                {dnsRecords[key].ips.map((ipText, index) => {
-                                  return (
-                                    <li>
-                                      <span>{ipText}</span>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            ) : (
-                              ""
-                            )}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
+                            <div className="record-info">
+                              {dnsRecords[key].ips &&
+                              dnsRecords[key].ips.length > 0 ? (
+                                <ul className="ip-list">
+                                  {dnsRecords[key].ips.map((ipText, index) => {
+                                    return (
+                                      <li>
+                                        <span>{ipText}</span>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              ) : (
+                                ""
+                              )}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {!isMobile ? (
+                      <div className="dns-details">
+                        <div></div>
+                        <div
+                          className="website-is-working-button"
+                          onClick={this.check_website_is_working}
+                        >
+                          <span>Check if your website is working</span>
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 )}
               </div>
             </main>
-            <div className="dns-details">
-              <div></div>
-              <div
-                className="website-is-working-button"
-                onClick={this.check_website_is_working}
-              >
-                <span>Check if your website is working</span>
-              </div>
-            </div>
           </div>
         )}
-      </F>
+      </div>
     );
   }
 }
-export default Dns;
+export default withRouter(Dns);

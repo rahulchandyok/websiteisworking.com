@@ -20,11 +20,18 @@ body {
   color: white;
   //font-family: courier;
   font-family: "Montserrat", serif;
+
+
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
+}
+
+
+.relative {
+  position: relative;
 }
 
 .divider {
@@ -101,4 +108,11 @@ screen and (max-width:800px) {
     display: none;
   }
 
+}
+
+@media screen and (min-device-width:800px),
+screen and (min-width:800px) {
+  .parent-container {
+    min-height: calc(100vh - 30rem); //setting footer at bottom, so setting content height to min 100vh -header-footer-footer top value
+  }
 }

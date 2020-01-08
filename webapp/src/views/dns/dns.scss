@@ -11,6 +11,8 @@
 
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    right: 0;
 
     .website-is-working-button {
       cursor: pointer;
@@ -67,7 +69,7 @@
 
     >ul {
       margin: 0;
-      overflow-y: auto;
+      //overflow-y: auto;
     }
 
     #style-3::-webkit-scrollbar-track &::-webkit-scrollbar-track {
