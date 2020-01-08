@@ -123,7 +123,14 @@ class Dns extends Component {
     };
   }
   componentDidMount() {
-    // this.props.fetchDnsRecords('CNAME', 'google.com');
+    let searchParams = window.location.search;
+    let url = searchParams.slice(1).split("/");
+    let website = url[0];
+    let dnsType = url[1].toUpperCase();
+    if (website && dnsType) {
+      this.ping(dnsType, website);
+      this.setState({ website, dnsType });
+    }
   }
   componentWillUnmount = () => {
     this.props.clearDnsData();

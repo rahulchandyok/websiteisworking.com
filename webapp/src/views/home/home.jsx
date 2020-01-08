@@ -102,14 +102,22 @@ class Home extends Component {
   componentWillUnmount = () => {
     this.props.resetPingResponse();
   };
+  componentDidMount = () => {
+    let searchParams = window.location.search;
+    let url = searchParams.slice(1).split("/")[0]; // removing ? and extra params ?google.com/sdfsdf/sdf
+    if (url) {
+      this.ping(url);
+      this.setState({ website: url });
+    }
+  };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
     if (Object.keys(this.props.home.pingResponse).length) {
       this.props.resetPingResponse();
     }
   };
-  ping = () => {
-    this.props.pingWebsite(this.state.website);
+  ping = url => {
+    this.props.pingWebsite(url || this.state.website);
   };
   checkDdns = () => {
     this.props.history.push({
