@@ -110,8 +110,7 @@ screen and (max-width:800px) {
 
 }
 
-@media screen and (min-device-width:800px),
-screen and (min-width:800px) {
+@media screen and (min-width : 800px) {
   .parent-container {
     min-height: calc(100vh - 30rem); //setting footer at bottom, so setting content height to min 100vh -header-footer-footer top value
   }

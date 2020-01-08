@@ -165,8 +165,64 @@ main {
   margin-top: -8px;
 }
 
-@media screen and (max-device-width:800px),
-screen and (max-width:800px) {
+
+@media screen and (max-device-width:1100px),
+screen and (max-width:1100px) {
+  main {
+    padding: 0;
+  }
+}
+
+
+.dns-header-container {
+  background: rgb(255, 100, 80);
+  height: 100%;
+
+  .ping-input-label {
+    color: rgb(0, 61, 204);
+    font-weight: 600;
+    font-size: 3rem;
+    //font-family: courier;
+  }
+
+  .input-container {
+    input {
+      color: rgb(21, 62, 200);
+      font-weight: 200;
+      font-family: Courier;
+      font-size: 2.5rem;
+      border-bottom: 2px solid #003dcc;
+    }
+  }
+
+  .button-container {
+    color: rgb(21, 62, 200);
+
+
+    .custom-select {
+      min-width: 50%;
+
+      .bst-mui-select {
+        color: rgb(21, 62, 200);
+        font-size: 2rem;
+        border-bottom: 2px solid #003dcc;
+      }
+    }
+
+    .ping-button {
+      background: rgb(0, 62, 204);
+    }
+  }
+
+}
+
+@media screen and (min-width : 800px) {
+  .dns-left-side {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width : 800px) {
   svg {
     display: none;
   }
@@ -215,63 +271,10 @@ screen and (max-width:800px) {
 
     }
   }
-}
 
-@media screen and (max-device-width:1100px),
-screen and (max-width:1100px) {
-  main {
-    padding: 0;
-  }
-}
-
-
-.dns-header-container {
-  background: rgb(255, 100, 80);
-
-  .ping-input-label {
-    color: rgb(0, 61, 204);
-    font-weight: 600;
-    font-size: 3rem;
-    //font-family: courier;
-  }
-
-  .input-container {
-    input {
-      color: rgb(21, 62, 200);
-      font-weight: 200;
-      font-family: Courier;
-      font-size: 2.5rem;
-      border-bottom: 2px solid #003dcc;
-    }
-  }
-
-  .button-container {
-    color: rgb(21, 62, 200);
-
-
-    .custom-select {
-      min-width: 50%;
-
-      .bst-mui-select {
-        color: rgb(21, 62, 200);
-        font-size: 2rem;
-        border-bottom: 2px solid #003dcc;
-      }
-    }
-
-    .ping-button {
-      background: rgb(0, 62, 204);
-    }
-  }
-
-}
-
-@media screen and (min-device-width:800px),
-screen and (min-width:800px) {
   .dns-left-side {
     background: #ff6450;
     border-radius: 15px;
-    width: 60vw;
 
     .card {
       box-shadow: none;

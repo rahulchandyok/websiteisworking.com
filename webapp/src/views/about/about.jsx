@@ -37,7 +37,7 @@ class About extends Component {
           <AboutHeader isMobile={isMobile} />
         ) : (
           <p className=" about-content">
-            <AboutHeader isMobile={isMobile} />
+            {!isMobile ? <AboutHeader isMobile={isMobile} /> : ""}
             If you have an idea for a new tool, service, or any feedback, we'd
             really love to hear about it. contact@eagertools.com
           </p>
