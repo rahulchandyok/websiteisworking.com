@@ -20,9 +20,6 @@ label {
   font-weight: 800;
 }
 
-.ping-loader {
-  bottom: -33px;
-}
 
 .ping-container {
   width: auto;
@@ -289,9 +286,6 @@ button:focus {
 
 
 @media (max-width: 800px) {
-  .ping-loader {
-    bottom: 0;
-  }
 
   .side-content {
     flex-direction: column;

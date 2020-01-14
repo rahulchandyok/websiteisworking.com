@@ -32,7 +32,7 @@ const types = [
 ];
 
 const DnsHeader = props => {
-  const { dnsRecords, dnsType, website } = props;
+  const { dnsRecords, dnsType, website, isDnsRecordsFetched } = props;
   return (
     <div className="card dns-header-container">
       <label className="ping-input-label">
@@ -93,14 +93,14 @@ const DnsHeader = props => {
           >
             ping!
           </button>
-          {/* {!isDnsRecordsFetched ? (
-    <div className='ping-loader'>
-      <CircularProgress size={'40px'} />
-    </div>
-  ) : (
-    ''
-  )} */}
         </div>
+        {/* {!isDnsRecordsFetched ? (
+          <div className="ping-loader">
+            <CircularProgress size={"40px"} />
+          </div>
+        ) : (
+          ""
+        )} */}
       </div>
     </div>
   );
@@ -124,22 +124,34 @@ class Dns extends Component {
   }
   componentDidMount() {
     let searchParams = window.location.search;
-    let url = searchParams.slice(1).split("/");
+
+    let url = searchParams.slice(1).split("&");
     let website = url[0];
     let dnsType = url[1];
     if (website && dnsType) {
-      this.ping(dnsType.toUpperCase(), website);
-      this.setState({ website, dnsType });
+      this.ping({ dnsType: dnsType.toUpperCase(), website });
+      this.setState({ website, dnsType: dnsType.toUpperCase() });
     }
   }
+
   componentWillUnmount = () => {
     this.props.clearDnsData();
   };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
-  ping = () => {
-    this.props.fetchDnsRecords(this.state.dnsType, this.state.website);
+  ping = ({ dnsType, website }) => {
+    if (!website && !dnsType) {
+      var newurl =
+        window.location.origin +
+        window.location.pathname +
+        `?${this.state.website}&${this.state.dnsType}`;
+      window.history.pushState({ path: newurl }, "", newurl);
+    }
+    this.props.fetchDnsRecords(
+      dnsType || this.state.dnsType,
+      website || this.state.website
+    );
   };
   check_website_is_working = () => {
     this.props.history.push({
@@ -151,7 +163,9 @@ class Dns extends Component {
   render() {
     let { isMobile } = this.props;
     const { dnsRecords, isDnsRecordsFetched } = this.props.dns;
-    const { dnsType } = this.state;
+
+    const { dnsType, website } = this.state;
+    console.log({ dnsType, website });
     return (
       <div className="parent-container">
         {this.props.isNav ? (
@@ -163,7 +177,7 @@ class Dns extends Component {
             ping={this.ping}
           />
         ) : (
-          <div className="parent-container dns-home">
+          <div className="dns-home">
             <main data-layout="row">
               {!isMobile ? (
                 <div className={"dns-left-side"}>

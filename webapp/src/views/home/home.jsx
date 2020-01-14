@@ -36,7 +36,11 @@ const HomeHeader = props => {
           ping!
         </button>
       </div>
-
+      {website && home.pingWebsiteLoader && (
+        <div className="ping-loader">
+          <CircularProgress size={"50px"} />
+        </div>
+      )}
       {website && (
         <div
           className={
@@ -106,7 +110,7 @@ class Home extends Component {
     let searchParams = window.location.search;
     let url = searchParams.slice(1).split("/")[0]; // removing ? and extra params ?google.com/sdfsdf/sdf
     if (url) {
-      this.ping(url);
+      this.ping({ url });
       this.setState({ website: url });
     }
   };
@@ -116,7 +120,13 @@ class Home extends Component {
       this.props.resetPingResponse();
     }
   };
-  ping = url => {
+  ping = ({ url }) => {
+    var newurl =
+      window.location.origin +
+      window.location.pathname +
+      `?${url || this.state.website}`;
+    window.history.pushState({ path: newurl }, "", newurl);
+
     this.props.pingWebsite(url || this.state.website);
   };
   checkDdns = () => {
