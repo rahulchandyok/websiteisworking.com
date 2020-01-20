@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import { CircularProgress } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { withRouter } from 'react-router-dom'
+import { PATHS } from '../../App/Constants'
 const ColorCircularProgress = withStyles({
   root: {
     color: '#003dcc'
@@ -127,6 +128,18 @@ class SSL extends Component {
       this.setState({ [type]: 'open' }, () => console.log(this.state))
     else this.setState({ [type]: 'closed' })
   }
+  check_website_is_working = () => {
+    this.props.history.push({
+      pathname: PATHS.HOME,
+      state: { website: this.state.domainName }
+    })
+  }
+  checkDdns = () => {
+    this.props.history.push({
+      pathname: PATHS.DNS,
+      state: { website: this.state.domainName }
+    })
+  }
   render() {
     let { isMobile } = this.props
     const { sslResponse, sslCheckLoader } = this.props.ssl
@@ -168,116 +181,137 @@ class SSL extends Component {
               ) : (
                 ''
               )}
-              <div className='ssl-right-side'>
-                {isMobile && (
-                  <div className='ssl-containers basic-info'>
+              <div className='relative'>
+                <div className='ssl-right-side'>
+                  {isMobile && (
+                    <div className='ssl-containers basic-info'>
+                      <div
+                        data-layout='row'
+                        data-layout-align='space-between center'
+                      >
+                        <label className='heading'>Basic-info</label>
+                        {isMobile &&
+                          sslResponse &&
+                          Object.keys(sslResponse).length > 0 && (
+                            <i
+                              class='material-icons'
+                              onClick={() =>
+                                this.handleArrowButton('basicInfoTabState')
+                              }
+                            >
+                              keyboard_arrow_down
+                            </i>
+                          )}
+                      </div>
+                      {this.state.basicInfoTabState === 'open' && (
+                        <div className='basic-info-fields'>
+                          <label>
+                            Common Name: &nbsp;
+                            <span>{sslResponse['Common Name:']}</span>
+                          </label>
+                          <br />
+                          <label>
+                            Issuing CA:&nbsp;
+                            <span>{sslResponse['Issuing CA:']}</span>
+                          </label>
+                          <br />
+                          <label>
+                            Organization: &nbsp;
+                            <span>{sslResponse['Organization:']}</span>
+                          </label>
+                          <br />
+                          <label>
+                            Valid:&nbsp;<span>{sslResponse['Valid:']}</span>
+                          </label>
+                          <br />
+                          <label>
+                            Key Size:&nbsp;
+                            <span>{sslResponse['Key Size:']}</span>
+                          </label>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  <div className='ssl-containers expiry-info'>
+                    <label>
+                      Expiry in &nbsp;<span>{sslResponse['Expiry']}</span>
+                    </label>
+                  </div>
+                  <div className='ssl-containers dns-resolution'>
+                    <label>
+                      DNS Resolution
+                      <br />
+                      &nbsp;<span>{sslResponse['DnsResolutions']}</span>
+                    </label>
+                  </div>
+                  <div className='ssl-containers chain'>
                     <div
                       data-layout='row'
                       data-layout-align='space-between center'
                     >
-                      <label className='heading'>Basic-info</label>
+                      <label className='heading'>Chains</label>
                       {isMobile &&
                         sslResponse &&
                         Object.keys(sslResponse).length > 0 && (
                           <i
                             class='material-icons'
                             onClick={() =>
-                              this.handleArrowButton('basicInfoTabState')
+                              this.handleArrowButton('chainsTabState')
                             }
                           >
                             keyboard_arrow_down
                           </i>
                         )}
                     </div>
-                    {this.state.basicInfoTabState === 'open' && (
-                      <div className='basic-info-fields'>
-                        <label>
-                          Common Name: &nbsp;
-                          <span>{sslResponse['Common Name:']}</span>
-                        </label>
-                        <br />
-                        <label>
-                          Issuing CA:&nbsp;
-                          <span>{sslResponse['Issuing CA:']}</span>
-                        </label>
-                        <br />
-                        <label>
-                          Organization: &nbsp;
-                          <span>{sslResponse['Organization:']}</span>
-                        </label>
-                        <br />
-                        <label>
-                          Valid:&nbsp;<span>{sslResponse['Valid:']}</span>
-                        </label>
-                        <br />
-                        <label>
-                          Key Size:&nbsp;
-                          <span>{sslResponse['Key Size:']}</span>
-                        </label>
-                      </div>
-                    )}
+                    {this.state.chainsTabState === 'open' &&
+                      sslResponse['chains'] &&
+                      sslResponse['chains'].map(chain => {
+                        return Object.keys(chain).length > 0 ? (
+                          <div className='chains'>
+                            <label>
+                              Common Name:&nbsp;
+                              <span>{chain['Common Name']}</span>
+                            </label>
+                            <br />
+                            <label>
+                              Organization: &nbsp;
+                              <span>{chain['Organization:']}</span>
+                            </label>
+                            <br />
+                            <label>
+                              Valid:&nbsp;<span>{chain['Valid:']}</span>
+                            </label>
+                            <br />
+                            <label>
+                              Issuer:&nbsp;<span>{chain['Issuer']}</span>
+                            </label>
+                            <br />
+                          </div>
+                        ) : (
+                          <div />
+                        )
+                      })}
                   </div>
+                </div>
+                {!isMobile ? (
+                  <div className='ssl-details' data-layout='column'>
+                    <div></div>
+                    <div
+                      className='website-is-working-button'
+                      onClick={this.check_website_is_working}
+                    >
+                      <span>Check if your website is working</span>
+                    </div>
+                    <div
+                      className='website-is-working-button'
+                      onClick={this.checkDdns}
+                    >
+                      <span>Check Dns records</span>
+                    </div>
+                  </div>
+                ) : (
+                  ''
                 )}
-                <div className='ssl-containers expiry-info'>
-                  <label>
-                    Expiry in &nbsp;<span>{sslResponse['Expiry']}</span>
-                  </label>
-                </div>
-                <div className='ssl-containers dns-resolution'>
-                  <label>
-                    DNS Resolution
-                    <br />
-                    &nbsp;<span>{sslResponse['DnsResolutions']}</span>
-                  </label>
-                </div>
-                <div className='ssl-containers chain'>
-                  <div
-                    data-layout='row'
-                    data-layout-align='space-between center'
-                  >
-                    <label className='heading'>Chains</label>
-                    {isMobile &&
-                      sslResponse &&
-                      Object.keys(sslResponse).length > 0 && (
-                        <i
-                          class='material-icons'
-                          onClick={() =>
-                            this.handleArrowButton('chainsTabState')
-                          }
-                        >
-                          keyboard_arrow_down
-                        </i>
-                      )}
-                  </div>
-                  {this.state.chainsTabState === 'open' &&
-                    sslResponse['chains'] &&
-                    sslResponse['chains'].map(chain => {
-                      return Object.keys(chain).length > 0 ? (
-                        <div className='chains'>
-                          <label>
-                            Common Name:&nbsp;
-                            <span>{chain['Common Name']}</span>
-                          </label>
-                          <br />
-                          <label>
-                            Organization: &nbsp;
-                            <span>{chain['Organization:']}</span>
-                          </label>
-                          <br />
-                          <label>
-                            Valid:&nbsp;<span>{chain['Valid:']}</span>
-                          </label>
-                          <br />
-                          <label>
-                            Issuer:&nbsp;<span>{chain['Issuer']}</span>
-                          </label>
-                          <br />
-                        </div>
-                      ) : (
-                        <div />
-                      )
-                    })}
-                </div>
               </div>
             </main>
           </div>
