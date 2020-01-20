@@ -1,7 +1,12 @@
 const express = require('express')
 const URL = require('url')
 const app = express()
-const { getFileData, pingWebsite, findAllRecord } = require('./utils')
+const {
+  getFileData,
+  pingWebsite,
+  findAllRecord,
+  getSSLCheckResponse
+} = require('./utils')
 app.use(express.json())
 const PORT = process.env.PORT || 8080
 
@@ -41,6 +46,20 @@ app.get('/api/get_recent_searches', (req, res) => {
   if (fileData) {
     for (i = 0; i < 10 && i < fileData.length; i++) response.push(fileData[i])
   }
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res
+    .status(200)
+    .send(JSON.stringify(response))
+    .end()
+})
+
+app.get('/api/ssl_check', async (req, res) => {
+  let urlParts = URL.parse(req.url, true)
+  let queryParams = urlParts.query
+  let domaninName = queryParams.domain_name
+  let response = await getSSLCheckResponse(domaninName)
+  console.log(response)
   res.setHeader('Content-Type', 'application/json')
   res.setHeader('Access-Control-Allow-Origin', '*')
   res

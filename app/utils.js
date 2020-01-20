@@ -1,5 +1,6 @@
 const fs = require('fs')
-const { get } = require('./request')
+const cheerio = require('cheerio')
+const { get, post } = require('./request')
 const axios = require('axios')
 
 async function pingWebsite(website) {
@@ -82,8 +83,91 @@ async function findAllRecord(queryParams) {
       return list
     })
 }
+
+async function getSSLCheckResponse(domainName, port = 443) {
+  const authenticity_token =
+    'GRG5S0C+5f8kcayJz4bPRulPfcKKq4W3FyZXkCzVTk3gSq/Ka3NrbUEk1+gMNN/V9QHQ5GxjG8wFeE8OD90JVQ=='
+  let formData = {
+    authenticity_token: authenticity_token,
+    s: 1,
+    domain: domainName,
+    port: 443,
+    utf8: true
+  }
+  let { respose, body } = await post(
+    'https://www.geocerts.com/ssl-checker',
+    formData
+  )
+  console.log(body)
+  let response = []
+  let responseToBeSend = {}
+  let html = cheerio.load(body)
+  let allTags = html('div.media-body')
+  for (let i = 0; i < allTags.length; i++) {
+    let pTag = html(allTags[i]).find('p')
+    let subresp = {}
+    for (let j = 0; j < pTag.length; j++) {
+      let x = pTag[j]
+      let text = html(x).text()
+      let arr = text.split('\n')
+      // console.log('i', i, '\n')
+      // console.log(arr)
+      // console.log('\n')
+      if (arr[0] !== '') subresp[arr[0]] = arr[1]
+      else if (arr[1] !== '') subresp[arr[1]] = arr[2]
+      // console.log(subresp)
+      // console.log('\n\n')
+    }
+    response.push(subresp)
+  }
+  // console.log(response)
+  let chains = []
+  for (let i = 0; i < response.length; i++) {
+    let keys = Object.keys(response[i])
+    switch (i) {
+      case 0:
+        Object.keys(response[i]).forEach(
+          key => (responseToBeSend[key] = response[i][key])
+        )
+        break
+      case 1:
+        break
+      case 2:
+        console.log(keys[0].split(' '))
+        responseToBeSend['Expiry'] =
+          keys[0].split(' ')[5] + ' ' + keys[0].split(' ')[6]
+        break
+      case 3:
+        //TODO
+        break
+      case 4:
+        let value = response[i][keys[0]].split(' ')
+        let dns = []
+        for (let j = 3; j < value.length; j++) dns.push(value[j])
+        responseToBeSend['DnsResolutions'] = dns
+        break
+      case 5:
+        break
+      default:
+        console.log(keys)
+        console.log(response[i])
+        let chain = {}
+        keys.forEach(key => {
+          if (key.indexOf('Common Name') != -1)
+            chain['Common Name'] = key.split(':')[1]
+          else chain[key] = response[i][key]
+        })
+        chains.push(chain)
+        break
+    }
+  }
+  responseToBeSend['chains'] = chains
+  console.log(responseToBeSend)
+  return responseToBeSend
+}
 module.exports = {
   getFileData,
   pingWebsite,
-  findAllRecord
+  findAllRecord,
+  getSSLCheckResponse
 }

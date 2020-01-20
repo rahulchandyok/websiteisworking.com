@@ -1,61 +1,67 @@
-import React, { Fragment as F, Component } from "react";
-import "./navbar.scss";
-import { withStyles } from "@material-ui/core/styles";
-import { withRouter } from "react-router-dom";
-import { CircularProgress } from "@material-ui/core";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import working_icon from "../../images/tick_circled.png";
-import not_working_icon from "../../images/not_working_icon.png";
-import Header from "../common/Header/Header";
-import Map from "../common/Map/Map";
-import Dns from "../dns";
-import Slider from "react-slick";
+import React, { Fragment as F, Component } from 'react'
+import './navbar.scss'
+import { withStyles } from '@material-ui/core/styles'
+import { withRouter } from 'react-router-dom'
+import { CircularProgress } from '@material-ui/core'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import working_icon from '../../images/tick_circled.png'
+import not_working_icon from '../../images/not_working_icon.png'
+import Header from '../common/Header/Header'
+import Map from '../common/Map/Map'
+import Dns from '../dns'
+import Slider from 'react-slick'
+import SSL from '../SSL'
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import About from "../about/about";
-import Home from "../home";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import About from '../about/about'
+import Home from '../home'
 
 class Navbar extends Component {
   constructor(props) {
-    super(props);
-    let path = window.location.pathname;
-    if (path === "/dns-check" || path === "/dns-check/") path = 1;
-    else if (path === "/about-us" || path === "/about-us/") path = 2;
-    else path = 0;
+    super(props)
+    let path = window.location.pathname
+    if (path === '/dns-check' || path === '/dns-check/') path = 1
+    else if (path === '/ssl-check' || path === '/ssl-check/') path = 2
+    else if (path === '/about-us' || path === '/about-us/') path = 3
+    else path = 0
     this.state = {
       initialSlide: path
-    };
+    }
   }
   _navigateTo = (currentTab, nextTab) => {
-    let path;
-    console.log({ currentTab, nextTab });
+    let path
+    console.log({ currentTab, nextTab })
     switch (nextTab) {
       case 0: {
-        path = "/";
+        path = '/'
 
-        break;
+        break
       }
       case 1: {
-        path = "/dns-check";
+        path = '/dns-check'
 
-        break;
+        break
       }
       case 2: {
-        path = "/about-us";
+        path = '/ssl-check'
+        break
+      }
+      case 3: {
+        path = '/about-us'
       }
     }
     this.props.history.push({
       pathname: path
-    });
-  };
+    })
+  }
   render() {
-    let _this = this;
+    let _this = this
     var settings = {
       centerMode: true,
       infinite: true,
-      centerPadding: "15px",
+      centerPadding: '15px',
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -67,7 +73,7 @@ class Navbar extends Component {
 
       beforeChange: (currentSlide, nextSlide) =>
         _this._navigateTo(currentSlide, nextSlide)
-    };
+    }
     return (
       <F>
         <Slider {...settings}>
@@ -78,11 +84,14 @@ class Navbar extends Component {
             <Dns isNav={true} />
           </div>
           <div>
+            <SSL isNav={true} />
+          </div>
+          <div>
             <About isNav={true} isMobile={true} />
           </div>
         </Slider>
       </F>
-    );
+    )
   }
 }
-export default withRouter(Navbar);
+export default withRouter(Navbar)

@@ -1,0 +1,130 @@
+.ssl-home {
+  .loader {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .ssl-containers {
+    // height: 20px;
+    // width: 280px;
+    background: #79cf6c;
+    border-radius: 15px;
+    padding: 25px 20px;
+    // box-shadow: 5px 25px 20px #ccc;
+    color: rgb(0, 61, 204);
+    margin-top: 15px;
+  }
+  .heading {
+    color: rgb(0, 61, 204);
+    font-weight: 800;
+    font-size: 3rem;
+  }
+
+  label {
+    color: rgb(0, 61, 204);
+    font-weight: 600;
+    font-size: 2rem;
+    span {
+      color: rgb(0, 61, 204);
+      font-weight: 400;
+      font-size: 2.25rem;
+    }
+  }
+}
+.ssl-header-container {
+  box-sizing: border-box;
+  background: #79cf6c;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 5px 25px 20px #ccc;
+
+  .go-input-label {
+    color: rgb(0, 61, 204);
+    font-weight: 600;
+    font-size: 3rem;
+    //font-family: courier;
+  }
+
+  .input-container {
+    input {
+      color: rgb(21, 62, 200);
+      font-weight: 200;
+      font-family: Courier;
+      font-size: 2.5rem;
+      border-bottom: 2px solid #003dcc;
+    }
+  }
+
+  .button-container {
+    color: rgb(21, 62, 200);
+    justify-content: flex-end;
+
+    .custom-select {
+      .bst-mui-select {
+        color: rgb(21, 62, 200);
+        font-size: 2rem;
+        border-bottom: 2px solid #003dcc;
+      }
+    }
+
+    .go-button {
+      background: rgb(0, 62, 204);
+      margin-bottom: 1rem;
+      border-radius: 2px;
+      border-color: #464646;
+      border-width: 3px;
+      font-family: Courier;
+      font-size: 1.5rem !important;
+      padding-top: 0.5rem;
+      font-weight: 800;
+      box-shadow: none;
+      padding: 0.7rem 3rem 0.8rem 3rem;
+      margin-left: 3rem;
+      color: white;
+    }
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  .material-icons {
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 800px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .ssl-left-side {
+    width: 50vw;
+  }
+  .ssl-right-side {
+    width: 50vw;
+  }
+  .ssl-containers {
+    background: #79cf6c;
+    border-radius: 15px;
+    padding: 25px 20px;
+    // box-shadow: 5px 25px 20px #ccc;
+    color: rgb(0, 61, 204);
+    margin-top: 15px;
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ssl-header-container {
+    height: 100%;
+  }
+}

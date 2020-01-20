@@ -1,11 +1,11 @@
-import React, { Fragment as F, Component } from "react";
-import "./about.scss";
-import { withRouter } from "react-router-dom";
-import Header from "../common/Header/Header";
+import React, { Fragment as F, Component } from 'react'
+import './about.scss'
+import { withRouter } from 'react-router-dom'
+import Header from '../common/Header/Header'
 
 const AboutHeader = props => (
-  <div className={`about ${props.isMobile ? "card" : ""}`}>
-    <div class="privacy-container">
+  <div className={`about ${props.isMobile ? 'card' : ''}`}>
+    <div class='privacy-container'>
       <p>
         Eagertools has been founded in the year 2019 considering the prevailing
         website issues faced by millions of technology professionals everyday.
@@ -23,27 +23,27 @@ continue to invest heavily to develop new tools and services.
 </p> */}
     </div>
   </div>
-);
+)
 class About extends Component {
   componentDidMount = () => {
-    window.scrollTo(0, 0);
-  };
+    window.scrollTo(0, 0)
+  }
   render() {
-    let { isMobile } = this.props;
+    let { isMobile } = this.props
     return (
-      <div className="parent-container">
-        {" "}
+      <div className='parent-container'>
+        {' '}
         {this.props.isNav ? (
           <AboutHeader isMobile={isMobile} />
         ) : (
-          <p className=" about-content">
-            {!isMobile ? <AboutHeader isMobile={isMobile} /> : ""}
+          <p className=' about-content'>
+            {!isMobile ? <AboutHeader isMobile={isMobile} /> : ''}
             If you have an idea for a new tool, service, or any feedback, we'd
             really love to hear about it. contact@eagertools.com
           </p>
         )}
       </div>
-    );
+    )
   }
 }
-export default withRouter(About);
+export default withRouter(About)
