@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/rahulchandyok/websiteisworking.com#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "url": "^0.11.0"
   }
 }
